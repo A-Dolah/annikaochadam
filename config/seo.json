@@ -1,0 +1,21 @@
+{
+  "title": "Annika och Adam | Bröllop",
+  "titleTemplate": "%s - Dalby 2022",
+  "description": "Bröllop",
+  "openGraph": {
+    "title": "Annika och Adam | Bröllop",
+    "description": "Bröllop",
+    "type": "website",
+    "locale": "en_IE",
+    "url": "",
+    "site_name": "Annika och Adam",
+    "images": [
+      {
+        "url": "/",
+        "width": 800,
+        "height": 600,
+        "alt": "Annika och Adam"
+      }
+    ]
+  }
+}
