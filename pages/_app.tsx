@@ -12,14 +12,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [guest, setGuests] = useState(null)
 
   useEffect(() => {
-    const fetchUsers = async () => {
-      const response = await axios.post(`/api/guests`)
+    const fetchGuests = async () => {
+      const response = await axios.get(`/api/guests`)
       const { data } = response
       console.log(`DATA:`, data)
       setGuests(data)
     }
 
-    fetchUsers()
+    fetchGuests()
   }, [])
   return (
     <>

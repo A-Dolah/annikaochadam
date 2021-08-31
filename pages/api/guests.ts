@@ -3,9 +3,10 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 import { Pool, PoolConfig } from 'pg'
 
-import { ELEPHANTDB_VARIABLES } from '@config/DBconfig'
+import { ELEPHANTDB_VARIABLES } from 'database/DBconfig'
 
-import { selectAllGuestsQuery } from 'queries'
+import { selectAllGuestsQuery, insertGuestQuery } from 'database/queries'
+import { AxiosError } from 'axios'
 
 dotenv.config()
 
@@ -30,11 +31,23 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     setupPgPool()
   }
 
-  try {
-    const { rows } = await pgPool.query(selectAllGuestsQuery)
+  if (req.method === `GET`) {
+    try {
+      const { rows } = await pgPool.query(selectAllGuestsQuery)
+      res.status(200).json({ guests: rows })
+    } catch (e) {
+      res.status(500).json({ error: e })
+    }
+  }
 
-    res.status(200).json({ guests: rows })
-  } catch (e) {
-    res.status(500).json({ error: e })
+  if (req.method === `POST`) {
+    console.log('POST', req.body)
+    const { email, firstName, lastName } = req.body
+    try {
+      const { rows } = await pgPool.query(insertGuestQuery, [email, firstName, lastName])
+      res.status(200).json({ id: rows })
+    } catch (e) {
+      res.status(500).json({ error: e })
+    }
   }
 }
