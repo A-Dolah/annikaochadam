@@ -1,7 +1,4 @@
-import cn from 'classnames'
-
 import { NextPage } from 'next'
-import dynamic from 'next/dynamic'
 
 import { useRouter } from 'next/router'
 

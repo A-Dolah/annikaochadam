@@ -1,5 +1,7 @@
 import Image from 'next/image'
 
+import AttendForm from 'components/containers/AttendForm'
+
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -8,23 +10,9 @@ export default function Home() {
       <main className={styles.main}>
         <h1 className={styles.title}>Annika och Adams bröllopssida</h1>
 
-        <p className={styles.description}>anmäl dig här:</p>
+        <p className={styles.description}>Anmäl dig här:</p>
 
-        <div>
-          <form>
-            <label htmlFor="firstName">
-              Förnamn:
-              <input type="text" id="firstName" name="Förnamn" />
-            </label>
-
-            <label htmlFor="lastName">
-              Efternamn:
-              <input type="text" id="lastName" name="Efternamn" />
-            </label>
-
-            <input type="submit" value="Skicka" />
-          </form>
-        </div>
+        <AttendForm />
       </main>
 
       <footer className={styles.footer}>
