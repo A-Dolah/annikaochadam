@@ -18,7 +18,7 @@
       "@lib/*": ["lib/*"],
       "@utils/*": ["utils/*"],
       "@config/*": ["config/*"],
-      "@assets/*": ["assets/*"],
+      "@public/*": ["public/*"],
       "@components/*": ["components/ui-components/*"],
       "@containers/*": ["components/containers/*"],
     }
