@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 
 import React, { FC } from 'react'
 
+import Footer from '@containers/Footer'
 import Navbar from '@containers/Navbar'
 
 interface Props {
@@ -12,23 +13,15 @@ interface Props {
   }
 }
 
-const Layout: FC<Props> = ({ children, pageProps: { ...pageProps } }) => {
-  // const { displaySidebar, displayModal, closeSidebar, closeModal, modalView } = useUI()
+const Layout: FC<Props> = ({ children }) => {
   const { locale = `sv-SE` } = useRouter()
 
   return (
-    // <CommerceProvider locale={locale}>
-    <div>
+    <div className="flex flex-col">
       <Navbar />
-      <main className="fit">{children}</main>
-      {/* <Footer pages={pageProps.pages} /> */}
-
-      {/*
-        <Sidebar open={displaySidebar} onClose={closeSidebar}>
-          <CartSidebarView />
-        </Sidebar> */}
+      <main className="">{children}</main>
+      <Footer />
     </div>
-    // </CommerceProvider>
   )
 }
 

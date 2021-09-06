@@ -1,7 +1,4 @@
-import cn from 'classnames'
 import { FC, useState, useEffect } from 'react'
-
-import Navbar from './components/Navbar'
 
 const NavbarRoot: FC = () => {
   const [hasScrolled, setHasScrolled] = useState(false)
@@ -21,11 +18,7 @@ const NavbarRoot: FC = () => {
     //   }
   }, [hasScrolled])
 
-  return (
-    <div>
-      <Navbar />
-    </div>
-  )
+  return <div>NavBar</div>
 }
 
 export default NavbarRoot
