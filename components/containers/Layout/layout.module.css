@@ -69,3 +69,13 @@
   border-left: 3px solid black;
   border-right: 3px solid black;
 }
+
+.landingImageContainer {
+  height: 400px;
+}
+
+@media screen and (min-width: 648px) {
+  .landingImageContainer {
+    height: 600px;
+  }
+}
