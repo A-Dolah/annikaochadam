@@ -5,27 +5,21 @@ import transporter, { makeANiceEmail, gmailEmail } from '../../email/emailConfig
 
 dotenv.config()
 
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === `POST`) {
     try {
-      const { email, firstName, lastName, attending27, attending28, diet } = req.body
+      const { guestEmail, state } = req.body
+
+      const html = makeANiceEmail(state)
 
       await transporter.sendMail({
         from: gmailEmail,
-        to: email,
-        subject: `Bekräftelse`,
-        html: makeANiceEmail(
-          `
-        			Här kommer din bekräftelse ${firstName} ${lastName}!
-        			\n\n
-        			${attending27 && `Kommer den 27`}
-        			${attending28 && `Kommer den 28`}
-        			${diet && diet}
-        			`
-        ),
+        to: guestEmail,
+        subject: `Bekräftelse anmälan`,
+        html,
       })
-      res.status(200)
+
+      res.status(200).json(`Email sent`)
     } catch (e) {
       res.status(500).json({ error: e })
     }
