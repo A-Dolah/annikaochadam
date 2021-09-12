@@ -1,44 +1,106 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import axios from 'axios'
-import { FC, useState } from 'react'
+import axios, { AxiosResponse } from 'axios'
+import { FC, useState, useReducer } from 'react'
+
+import GuestInput from './GuestInput'
+
+export interface Guest {
+  firstName: string
+  lastName: string
+  email: string
+  diet: string
+  attending27: boolean
+  attending28: boolean
+  guestInfoComplete: boolean
+}
+export interface State {
+  guestOne: Guest
+  guestTwo: Guest
+}
+
+const initialState: State = {
+  guestOne: {
+    firstName: `X`,
+    lastName: `X`,
+    email: `adamdolah@gmail.com`,
+    diet: `X`,
+    attending27: false,
+    attending28: false,
+    guestInfoComplete: true,
+  },
+  guestTwo: {
+    firstName: `Y`,
+    lastName: `Y`,
+    email: `a.dolah.dev@gmail.com`,
+    diet: `Y`,
+    attending27: false,
+    attending28: false,
+    guestInfoComplete: true,
+  },
+}
+
+const guestReducer = (state: State, action: { type: string; payload: string | boolean }): State => {
+  switch (action.type) {
+    case `ADD_GUEST_ONE_FIRST_NAME`:
+      return { ...state, guestOne: { ...state.guestOne, firstName: action.payload as string } }
+    case `ADD_GUEST_TWO_FIRST_NAME`:
+      return { ...state, guestTwo: { ...state.guestTwo, firstName: action.payload as string } }
+
+    case `ADD_GUEST_ONE_LAST_NAME`:
+      return { ...state, guestOne: { ...state.guestOne, lastName: action.payload as string } }
+    case `ADD_GUEST_TWO_LAST_NAME`:
+      return { ...state, guestTwo: { ...state.guestTwo, lastName: action.payload as string } }
+
+    case `ADD_GUEST_ONE_ATTENDANCE_27`:
+      return { ...state, guestOne: { ...state.guestOne, attending27: action.payload as boolean } }
+    case `ADD_GUEST_TWO_ATTENDANCE_27`:
+      return { ...state, guestTwo: { ...state.guestTwo, attending27: action.payload as boolean } }
+
+    case `ADD_GUEST_ONE_ATTENDANCE_28`:
+      return { ...state, guestOne: { ...state.guestOne, attending28: action.payload as boolean } }
+    case `ADD_GUEST_TWO_ATTENDANCE_28`:
+      return { ...state, guestTwo: { ...state.guestTwo, attending28: action.payload as boolean } }
+
+    case `ADD_GUEST_ONE_DIET`:
+      return { ...state, guestOne: { ...state.guestOne, diet: action.payload as string } }
+    case `ADD_GUEST_TWO_DIET`:
+      return { ...state, guestTwo: { ...state.guestTwo, diet: action.payload as string } }
+
+    case `ADD_GUEST_ONE_EMAIL`:
+      return { ...state, guestOne: { ...state.guestOne, email: action.payload as string } }
+    case `ADD_GUEST_TWO_EMAIL`:
+      return { ...state, guestTwo: { ...state.guestTwo, email: action.payload as string } }
+
+    default:
+      throw new Error()
+  }
+}
 
 const AttendForm: FC = () => {
   const [loading, setLoading] = useState(false)
+  const [multipleGuests, setMultipleGuests] = useState(false)
 
-  const [firstName, setFirstName] = useState(``)
-  const [lastName, setLastName] = useState(``)
-  const [email, setEmail] = useState(``)
-  const [attending27, setAttending27] = useState(false)
-  const [attending28, setAttending28] = useState(false)
-  const [diet, setDiet] = useState(``)
+  const [state, dispatch] = useReducer(guestReducer, initialState)
 
   const submitGuest = async () => {
     try {
       setLoading(true)
 
-      const response = await axios.post(`/api/guests`, {
-        firstName,
-        lastName,
-        email,
-        attending27,
-        attending28,
-        diet,
-      })
+      await Promise.all(
+        Object.values(state).map(async (guest): Promise<AxiosResponse> => {
+          const res = await axios.post(`/api/guests`, guest)
+          return res
+        })
+      )
 
-      const { data } = response
-
-      console.log(`GUEST INSERT RESPONSE:`, data)
-
-      const emailResponse = await axios.post(`/api/email`, {
-        firstName,
-        lastName,
-        email,
-        attending27,
-        attending28,
-        diet,
-      })
-
-      console.log(`EMAIL RESPONSE`, emailResponse)
+      await Promise.all(
+        Object.values(state)
+          .filter((guest) => guest.guestInfoComplete)
+          .map(async (guest): Promise<AxiosResponse> => {
+            const res = await axios.post(`/api/email`, { guestEmail: guest.email, state })
+            return res
+          })
+      )
 
       setLoading(false)
     } catch (error) {
@@ -49,6 +111,7 @@ const AttendForm: FC = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
     await submitGuest()
   }
 
@@ -59,104 +122,15 @@ const AttendForm: FC = () => {
   return (
     <div>
       <p className="text-base">Anmäl dig här:</p>
-      <form className="w-full max-w-sm" onSubmit={handleSubmit}>
-        <div className="md:flex md:items-center mb-6">
-          <div className="md:w-1/3">
-            <label
-              className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-              htmlFor="inline-full-name"
-            >
-              Förnamn
-            </label>
-          </div>
-          <div className="md:w-2/3">
-            <input
-              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-              id="inline-firstname"
-              type="text"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-            />
-          </div>
-        </div>
-        <div className="md:flex md:items-center mb-6">
-          <div className="md:w-1/3">
-            <label
-              className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-              htmlFor="inline-lastname"
-            >
-              Efternamn
-            </label>
-          </div>
-          <div className="md:w-2/3">
-            <input
-              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-              id="inline-lastname"
-              type="text"
-              onChange={(e) => setLastName(e.target.value)}
-            />
-          </div>
-        </div>
-        <div className="md:flex md:items-center mb-6">
-          <div className="md:w-1/3">
-            <label
-              className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-              htmlFor="inline-lastname"
-            >
-              Email
-            </label>
-          </div>
-          <div className="md:w-2/3">
-            <input
-              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-              id="inline-email"
-              type="text"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-        </div>
-        <div className="md:flex md:items-center mb-6">
-          <div className="md:w-1/3" />
-          <label className="md:w-2/3 block text-gray-500 font-bold">
-            <input
-              className="mr-2 leading-tight"
-              type="checkbox"
-              checked={attending27}
-              onChange={() => setAttending27((prev) => !prev)}
-            />
-            <span className="text-sm">Jag kommer på grillfesten den 27 maj 2022!</span>
-          </label>
-        </div>
-        <div className="md:flex md:items-center mb-6">
-          <div className="md:w-1/3" />
-          <label className="md:w-2/3 block text-gray-500 font-bold">
-            <input
-              className="mr-2 leading-tight"
-              type="checkbox"
-              checked={attending28}
-              onChange={() => setAttending28((prev) => !prev)}
-            />
-            <span className="text-sm">Jag kommer på vigsel och bröllop den 28 maj 2022!</span>
-          </label>
-        </div>
-        <div className="md:flex md:items-center mb-6">
-          <div className="md:w-1/3">
-            <label
-              className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-              htmlFor="inline-diet"
-            >
-              Kost- eller dietönskemål
-            </label>
-          </div>
-          <div className="md:w-2/3">
-            <textarea
-              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-              id="inline-firstname"
-              value={diet}
-              onChange={(e) => setDiet(e.target.value)}
-            />
-          </div>
-        </div>
+      <form className="w-full max-w-sm" onSubmit={(e) => handleSubmit(e)}>
+        <GuestInput state={state} guest="guestOne" dispatch={dispatch} />
+
+        <button type="button" onClick={() => setMultipleGuests(!multipleGuests)}>
+          Lägg till ytterligare gäst
+        </button>
+
+        {multipleGuests && <GuestInput state={state} guest="guestTwo" dispatch={dispatch} />}
+
         <div className="md:flex md:items-center">
           <div className="md:w-1/3" />
           <div className="md:w-2/3">
