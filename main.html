@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+              <html>
+                <head>
+                  <meta charset="utf-8">
+                  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                  <title></title>
+                  <meta name="description" content="">
+                  <meta name="viewport" content="width=device-width, initial-scale=1">
+                  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+                  <style>
+                    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&display=swap');
+                    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
+                    import ur()
+
+                    li {
+                      font-weight: 400;
+                    }
+
+                    .squareDecoContainer {
+                      display: grid;
+                      box-sizing: border-box;
+                      grid-template-columns:
+                        [outer-start]  10px
+                        [mid-start]    10px
+                        [inner-start]  5px
+                        [gap-start]    1fr
+                        [gap-end]      4px
+                        [inner-end]    10px
+                        [mid-end]      10px
+                        [outer-end]
+                      ;
+                      grid-template-rows:
+                        [outer-start]  10px
+                        [mid-start]    10px
+                        [inner-start]  5px
+                        [gap-start]    1fr
+                        [gap-end]      4px
+                        [inner-end]    10px
+                        [mid-end]      10px
+                        [outer-end]
+                      ;
+                    }
+
+                    .squareDecoContainer .squareDecoContent {
+                      grid-area: inner;
+                    }
+
+                    .squareDecoContainer .squareDecoInner {
+                      grid-area: mid;
+                      border: 2px solid black;
+                    }
+
+                    .squareDecoContainer .squareDecoSquareLeftTop {
+                      grid-column: outer-start / inner-start;
+                      grid-row: outer-start / inner-start;
+                      border: 3px solid black;
+                    }
+
+                    .squareDecoContainer .squareDecoSquareLeftBottom {
+                      grid-column: outer-start / inner-start;
+                      grid-row: inner-end / outer-end;
+                      border: 3px solid black;
+                    }
+
+                    .squareDecoContainer .squareDecoSquareRightTop {
+                      grid-column: inner-end / outer-end;
+                      grid-row: outer-start / inner-start;
+                      border: 3px solid black;
+                    }
+
+                    .squareDecoContainer .squareDecoSquareRightBottom {
+                      grid-column: inner-end / outer-end;
+                      grid-row: inner-end / outer-end;
+                      border: 3px solid black;
+                    }
+
+                    .squareDecoContainer .squareDecoTall {
+                      grid-column: gap-start / gap-end;
+                      grid-row: outer-start / outer-end;
+                      border-top: 3px solid black;
+                      border-bottom: 3px solid black;
+                    }
+
+                    .squareDecoContainer .squareDecoWide {
+                      grid-column: outer-start / outer-end;
+                      grid-row: gap-start / gap-end;
+                      border-left: 3px solid black;
+                      border-right: 3px solid black;
+                    }
+
+                    .button {
+                      color: #000000;
+                      text-decoration: none;
+                      background: #ffffff;
+                      padding: 10px;
+                      border: 2px solid #000000;
+                      display: inline-block;
+                      transition: all 0.4s ease 0s;
+                      text-align: center;
+                    }
+
+                    .button:hover {
+                      color: #ffffff;
+                      background: #ea5a26;
+                      border-color: #ea5a26;
+                      transition: all 0.4s ease 0s;
+                    }
+                </style>
+                </head>
+                <body>
+                  <div class="p-2 sm:p-8 h-screen">
+                    <div class="squareDecoContainer squareDecoContainer max-w-4xl h-full">
+                      <div class="flex flex-col squareDecoContent">
+                            <div class="flex flex-col px-4 sm:px-8 py-6 sm:py-8" style="
+                              font-family: Georgia, 'Times New Roman', Times, serif;
+                              font-weight: 400;
+                              font-size: 20px;
+                              "
+                              >
+                            <h1 class="text-2xl sm:text-3xl sm:mt-4">Hej!</h1>
+                            <h2 class="text-lg sm:text-xl mt-6">Härmed bekräftar vi att
+                            ${attendance.length > 1 ? `Ni` : `Du`} har anmält att:</h2>
+                            <div class="mb-2">
+
+                            <ul class="list-disc list-inside my-2 sm:my-4" style="list-style-type: square;">
+                              <h3 class="text-lg sm:text-xl">${attendance[0].first_name}</h3>
+                                <li class="text-sm sm:text-base">${
+                                  attendance[0].attending_27 ? `Kommer` : `Inte kommer`
+                                } på grillfesten den 27 maj 2022.</li>
+                                <li class="text-sm sm:text-base">${
+                                  attendance[0].attending_28 ? `Kommer` : `Inte kommer`
+                                } på vigsel och bröllop den 28 maj 2022.</li>
+                            </ul>
+                            ${
+                              attendance.length > 1
+                                ? `<ul class="list-disc list-inside my-4" style="list-style-type: square;">
+                                    <h3 class="text-lg sm:text-xl">${attendance[1]?.first_name}</h3>
+                                      <li class="text-sm sm:text-base">${
+                                        attendance[1]?.attending_27 ? `Kommer` : `Inte kommer`
+                                      } på grillfesten den 27 maj 2022.</li>
+                                      <li class="text-sm sm:text-base">${
+                                        attendance[1]?.attending_28 ? `Kommer` : `Inte kommer`
+                                      } på vigsel och bröllop den 28 maj 2022.</li>
+                                  </ul>`
+                                : ``
+                            }
+
+                            </div>
+                            <div class="max-w-xl self-center text-center">
+                            <p class="text-base mt-2 sm:text-xl sm:mt-3">Vi kommer löpande att tillhandahålla mer information om bröllopshelgen på hemsidan.</p>
+                          </div>
+                            <a target="_blank" href="https://www.annikaadam.se" class="mt-4 mb-8 sm:my-8 w-full sm:w-1/2 self-center button text-sm sm:text-base">Gå till hemsidan</a>
+
+                            <p class="text-base mt-6">Med kärlek,</p>
+                            <h2 class="text-xl">Annika & Adam</h2>
+                          </div>
+                      </div>
+                      <div class="squareDecoInner"></div>
+                      <div class="squareDecoSquareLeftTop"></div>
+                      <div class="squareDecoSquareLeftBottom"></div>
+                      <div class="squareDecoSquareRightTop"></div>
+                      <div class="squareDecoSquareRightBottom"></div>
+                      <div class="squareDecoTall"></div>
+                      <div class="squareDecoWide"></div>
+                    </div>
+                  </div>
+                  <script src="" async defer></script>
+                </body>
+              </html>
+        	`
