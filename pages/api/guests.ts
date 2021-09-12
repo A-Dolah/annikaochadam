@@ -40,7 +40,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   if (req.method === `POST`) {
-    console.log(`POST`, req.body)
     const { email, firstName, lastName, attending27, attending28, diet } = req.body
     try {
       const { rows } = await pgPool.query(insertGuestQuery, [
