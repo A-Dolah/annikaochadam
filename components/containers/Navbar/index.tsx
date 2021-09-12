@@ -21,7 +21,16 @@ const NavbarRoot: FC = () => {
     //   }
   }, [hasScrolled])
 
-  return <div className={styles.navbar}>Navbar</div>
+  return (
+    <nav className={styles.navbar}>
+      <ul className="flex content-evenly">
+        <li>Om Dalby</li>
+        <li>Schema</li>
+        <li>Boende</li>
+        <li>Kontakt</li>
+      </ul>
+    </nav>
+  )
 }
 
 export default NavbarRoot

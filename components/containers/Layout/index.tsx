@@ -20,27 +20,30 @@ interface Props {
 }
 
 const Layout: FC<Props> = ({ children }) => {
-  const { locale = `sv-SE` } = useRouter()
+  const { locale = `sv-SE`, pathname } = useRouter()
 
   return (
     <>
       <div className="p-2">
         <div className={cn(styles.squareDecoContainer, styles.squareDecoContainer)}>
           <div className={`flex flex-col ${styles.squareDecoContent}`}>
-            <div
-              className={cn(styles.landingImageContainer, `-m-8 z-0`)}
-              style={{ filter: `grayscale(100%)` }}
-            >
-              <Image
-                src={dalbyGastisPic}
-                alt="Gästis sky view"
-                priority
-                placeholder="blur"
-                layout="fill"
-                objectFit="cover"
-              />
-            </div>
-            {/* <Navbar /> */}
+            {pathname === `/` && (
+              <div
+                className={cn(styles.landingImageContainer, `-m-8 z-0`)}
+                style={{ filter: `grayscale(0%)`, overflow: `hidden` }}
+              >
+                <Image
+                  src={dalbyGastisPic}
+                  alt="Gästis sky view"
+                  priority
+                  placeholder="blur"
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
+            )}
+
+            <Navbar />
             <main className="pt-0 p-6 sm:p-11 sm:pt-0">{children}</main>
             <Footer />
           </div>
