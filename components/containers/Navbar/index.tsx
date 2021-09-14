@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import Link from 'next/link'
 import { FC, useState, useEffect } from 'react'
 
 import styles from './navbar.module.css'
@@ -22,12 +23,28 @@ const NavbarRoot: FC = () => {
   }, [hasScrolled])
 
   return (
-    <nav className={styles.navbar}>
-      <ul className="flex content-evenly">
-        <li>Om Dalby</li>
-        <li>Schema</li>
-        <li>Boende</li>
-        <li>Kontakt</li>
+    <nav className={cn(styles.navbar, `-mt-2 h-10 flex items-center my-0 mx-auto`)}>
+      <ul className="flex content-evenly justify-between w-96">
+          <li>
+          <Link href="/">
+            <a className="text-serif">Annika Adam</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/schema">
+            <a>Schema</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/osa">
+            <a>OSA</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/kontakt">
+            <a>Kontakt</a>
+          </Link>
+        </li>
       </ul>
     </nav>
   )
