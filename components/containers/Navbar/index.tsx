@@ -25,7 +25,7 @@ const NavbarRoot: FC = () => {
   return (
     <nav className={cn(styles.navbar, `-mt-2 h-10 flex items-center my-0 mx-auto`)}>
       <ul className="flex content-evenly justify-between w-96">
-          <li>
+        <li>
           <Link href="/">
             <a className="text-serif">Annika Adam</a>
           </Link>
