@@ -6,6 +6,18 @@
   width: 150px;
 }
 
+.date:before {
+  content: "";
+  position: absolute;
+  border-top: 1px solid #e2e8f0;
+  top: 12px;
+  width: 150px;
+}
+
 .date:after {
-  margin-left: 15px;
+  margin-left: 7px;
+}
+
+.date:before {
+  margin-right: 7px;
 }
