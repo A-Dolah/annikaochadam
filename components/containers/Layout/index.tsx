@@ -24,7 +24,7 @@ const Layout: FC<Props> = ({ children }) => {
 
   return (
     <>
-      <div className="p-2">
+      <div className="p-2 font-serif font-black">
         <div className={cn(styles.squareDecoContainer, styles.squareDecoContainer)}>
           <div className={`flex flex-col ${styles.squareDecoContent}`}>
             <Navbar />
