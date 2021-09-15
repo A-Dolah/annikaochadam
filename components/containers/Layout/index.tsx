@@ -27,9 +27,10 @@ const Layout: FC<Props> = ({ children }) => {
       <div className="p-2">
         <div className={cn(styles.squareDecoContainer, styles.squareDecoContainer)}>
           <div className={`flex flex-col ${styles.squareDecoContent}`}>
+            <Navbar />
             {pathname === `/` && (
               <div
-                className={cn(styles.landingImageContainer, `-m-8 z-0`)}
+                className={cn(styles.landingImageContainer, `-mb-2 -mx-2 z-0`)}
                 style={{ filter: `grayscale(0%)`, overflow: `hidden` }}
               >
                 <Image
@@ -42,9 +43,7 @@ const Layout: FC<Props> = ({ children }) => {
                 />
               </div>
             )}
-
-            <Navbar />
-            <main className="pt-0 p-6 sm:p-11 sm:pt-0">{children}</main>
+            <main className="pt-0 p-6 sm:p-11 sm:pt-0 min-h-screen">{children}</main>
             <Footer />
           </div>
           <div className={cn(styles.squareDecoInner, `z-10`)} />
