@@ -24,7 +24,7 @@ const Layout: FC<Props> = ({ children }) => {
 
   return (
     <>
-      <div className="p-2 font-serif font-black">
+      <div className="p-2 font-serif font-black tracking-wider	">
         <div className={cn(styles.squareDecoContainer, styles.squareDecoContainer)}>
           <div className={`flex flex-col ${styles.squareDecoContent}`}>
             <Navbar />
@@ -43,7 +43,7 @@ const Layout: FC<Props> = ({ children }) => {
                 />
               </div>
             )}
-            <main className="pt-0 p-6 sm:p-11 sm:pt-0 min-h-screen">{children}</main>
+            <main className="pt-0 p-6 sm:p-11 sm:pt-0 min-h-screen z-40">{children}</main>
             <Footer />
           </div>
           <div className={cn(styles.squareDecoInner, `z-10`)} />
