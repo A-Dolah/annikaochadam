@@ -2,9 +2,10 @@ import ScheduleComponent from '@components/ScheduleComponent'
 
 export default function Schema() {
   return (
-    <div className="my-0 mx-auto">
-      <div>SCHEMA</div>
-      <ScheduleComponent />
-    </div>
+    <main className="my-0 mx-auto">
+      <section className="flex justify-center items-center">
+        <ScheduleComponent />
+      </section>
+    </main>
   )
 }

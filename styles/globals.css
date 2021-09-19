@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
+
+
+
+@layer base {
+  @font-face {
+    font-family: 'Playfair Display';
+    font-style: italic;
+    font-weight: 400;
+    src: url('/public/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf');
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/public/fonts/PlayfairDisplay-VariableFont_wght.ttf');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 600;
+    src: url('/public/fonts/PlayfairDisplay-VariableFont_wght_600.ttf');
+    font-display: swap;
+  }
+}
+
 @tailwind utilities;

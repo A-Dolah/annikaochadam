@@ -27,7 +27,7 @@ const NavbarRoot: FC = () => {
       <ul className="flex content-evenly justify-between w-96">
         <li>
           <Link href="/">
-            <a className="text-serif">Annika Adam</a>
+            <a>Annika Adam</a>
           </Link>
         </li>
         <li>
