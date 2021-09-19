@@ -43,7 +43,7 @@ const Layout: FC<Props> = ({ children }) => {
                 />
               </div>
             )}
-            <main className="pt-0 p-6 sm:p-11 sm:pt-0 min-h-screen z-40">{children}</main>
+            <main className="pt-0 p-2 sm:p-11 sm:pt-0 min-h-screen z-40">{children}</main>
             <Footer />
           </div>
           <div className={cn(styles.squareDecoInner, `z-10`)} />

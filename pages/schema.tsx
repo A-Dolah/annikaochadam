@@ -1,4 +1,4 @@
-import ScheduleComponent from '@components/ScheduleComponent'
+import ScheduleComponent from '@components/Schedule'
 
 export default function Schema() {
   return (

@@ -1,10 +1,11 @@
-import AttendForm from 'components/containers/AttendForm'
+import OSAComponent from '@components/OSA'
 
-export default function OSA() {
+export default function Schema() {
   return (
-    <div className="flex flex-col items-center content-center">
-      <div>OSA</div>
-      <AttendForm />
-    </div>
+    <main className="my-0 mx-auto">
+      <section className="flex justify-center items-center">
+        <OSAComponent />
+      </section>
+    </main>
   )
 }
