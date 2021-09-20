@@ -19,6 +19,7 @@
       "@utils/*": ["utils/*"],
       "@config/*": ["config/*"],
       "@public/*": ["public/*"],
+      "@hooks/*": ["hooks/*"],
       "@components/*": ["components/ui-components/*"],
       "@containers/*": ["components/containers/*"],
     }
