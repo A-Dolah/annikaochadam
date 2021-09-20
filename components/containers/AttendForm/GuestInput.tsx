@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { FC } from 'react'
 
+import style from './guestInput.module.css'
+
 export interface Guest {
   firstName: string
   lastName: string
@@ -26,18 +28,14 @@ const GuestInput: FC<Props> = ({ state, guest, dispatch }) => (
   <>
     <div className="md:flex md:items-center mb-6">
       <div className="md:w-1/3">
-        <label
-          className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-          htmlFor="inline-full-name"
-        >
+        <label className={style.labelStyle} htmlFor="inline-full-name">
           Förnamn
         </label>
       </div>
       <div className="md:w-2/3">
         <input
           required
-          className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-          id="inline-firstname"
+          className={style.textInputStyle}
           type="text"
           value={state[guest].firstName}
           onChange={(e) =>
@@ -51,18 +49,14 @@ const GuestInput: FC<Props> = ({ state, guest, dispatch }) => (
     </div>
     <div className="md:flex md:items-center mb-6">
       <div className="md:w-1/3">
-        <label
-          className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-          htmlFor="inline-lastname"
-        >
+        <label className={style.labelStyle} htmlFor="inline-lastname">
           Efternamn
         </label>
       </div>
       <div className="md:w-2/3">
         <input
           required
-          className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-          id="inline-lastname"
+          className={style.textInputStyle}
           type="text"
           value={state[guest].lastName}
           onChange={(e) =>
@@ -76,7 +70,7 @@ const GuestInput: FC<Props> = ({ state, guest, dispatch }) => (
     </div>
     <div className="md:flex md:items-center mb-6">
       <div className="md:w-1/3" />
-      <label className="md:w-2/3 block text-gray-500 font-bold">
+      <label className={style.labelStyle}>
         <input
           className="mr-2 leading-tight"
           type="checkbox"
@@ -93,7 +87,7 @@ const GuestInput: FC<Props> = ({ state, guest, dispatch }) => (
     </div>
     <div className="md:flex md:items-center mb-6">
       <div className="md:w-1/3" />
-      <label className="md:w-2/3 block text-gray-500 font-bold">
+      <label className={style.labelStyle}>
         <input
           className="mr-2 leading-tight"
           type="checkbox"
@@ -110,16 +104,13 @@ const GuestInput: FC<Props> = ({ state, guest, dispatch }) => (
     </div>
     <div className="md:flex md:items-center mb-6">
       <div className="md:w-1/3">
-        <label
-          className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-          htmlFor="inline-diet"
-        >
+        <label className={style.labelStyle} htmlFor="inline-diet">
           Kost- eller dietönskemål
         </label>
       </div>
       <div className="md:w-2/3">
         <textarea
-          className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+          className={style.textInputStyle}
           id="inline-diet"
           value={state[guest].diet}
           onChange={(e) =>
@@ -133,17 +124,13 @@ const GuestInput: FC<Props> = ({ state, guest, dispatch }) => (
     </div>
     <div className="md:flex md:items-center mb-6">
       <div className="md:w-1/3">
-        <label
-          className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-          htmlFor="inline-email"
-        >
+        <label className={style.labelStyle} htmlFor="inline-email">
           Email
         </label>
       </div>
       <div className="md:w-2/3">
         <input
-          className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-          id="inline-email"
+          className={style.textInputStyle}
           value={state[guest].email}
           onChange={(e) =>
             dispatch({

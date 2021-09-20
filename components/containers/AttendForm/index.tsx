@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+import AddBoxSharpIcon from '@material-ui/icons/AddBoxSharp'
 import axios, { AxiosResponse } from 'axios'
 import { FC, useState, useReducer } from 'react'
 
@@ -120,13 +121,13 @@ const AttendForm: FC = () => {
   }
 
   return (
-    <div>
-      <p className="text-base">Anmäl dig här:</p>
-      <form className="w-full max-w-sm" onSubmit={(e) => handleSubmit(e)}>
+    <div className="flex items-center justify-center">
+      <form className="w-full max-w-md" onSubmit={(e) => handleSubmit(e)}>
         <GuestInput state={state} guest="guestOne" dispatch={dispatch} />
 
         <button type="button" onClick={() => setMultipleGuests(!multipleGuests)}>
-          Lägg till ytterligare gäst
+          <AddBoxSharpIcon />
+          <span>Lägg till ytterligare gäst</span>
         </button>
 
         {multipleGuests && <GuestInput state={state} guest="guestTwo" dispatch={dispatch} />}
@@ -135,7 +136,7 @@ const AttendForm: FC = () => {
           <div className="md:w-1/3" />
           <div className="md:w-2/3">
             <input
-              className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+              className="w-1/2 shadow bg-black cursor-pointer focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 mt-10"
               type="submit"
               value="OSA"
             />
