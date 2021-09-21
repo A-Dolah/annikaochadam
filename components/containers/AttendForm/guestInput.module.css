@@ -4,5 +4,9 @@
 }
 
 .labelStyle {
-  @apply text-gray-900 relative font-thin text-lg sm:text-xl tracking-widest mr-4;
+  @apply text-gray-900 block font-thin text-lg sm:text-xl tracking-wide text-center mx-auto mt-4 mb-2;
+}
+
+.inputContainer {
+  @apply flex-col items-center justify-center mb-6;
 }
