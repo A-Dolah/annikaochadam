@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import AddBoxSharpIcon from '@material-ui/icons/AddBoxSharp'
 import axios, { AxiosResponse } from 'axios'
 import { FC, useState, useReducer } from 'react'
 
@@ -12,6 +11,7 @@ export interface Guest {
   diet: string
   attending27: boolean
   attending28: boolean
+  notAttending: boolean
   guestInfoComplete: boolean
 }
 export interface State {
@@ -21,21 +21,23 @@ export interface State {
 
 const initialState: State = {
   guestOne: {
-    firstName: `X`,
-    lastName: `X`,
-    email: `adamdolah@gmail.com`,
-    diet: `X`,
+    firstName: ``,
+    lastName: ``,
+    email: ``,
+    diet: ``,
     attending27: false,
     attending28: false,
+    notAttending: false,
     guestInfoComplete: true,
   },
   guestTwo: {
-    firstName: `Y`,
-    lastName: `Y`,
-    email: `a.dolah.dev@gmail.com`,
-    diet: `Y`,
+    firstName: ``,
+    lastName: ``,
+    email: ``,
+    diet: ``,
     attending27: false,
     attending28: false,
+    notAttending: false,
     guestInfoComplete: true,
   },
 }
@@ -58,9 +60,44 @@ const guestReducer = (state: State, action: { type: string; payload: string | bo
       return { ...state, guestTwo: { ...state.guestTwo, attending27: action.payload as boolean } }
 
     case `ADD_GUEST_ONE_ATTENDANCE_28`:
-      return { ...state, guestOne: { ...state.guestOne, attending28: action.payload as boolean } }
+      return {
+        ...state,
+        guestOne: {
+          ...state.guestOne,
+          attending28: action.payload as boolean,
+          notAttending: false,
+        },
+      }
     case `ADD_GUEST_TWO_ATTENDANCE_28`:
-      return { ...state, guestTwo: { ...state.guestTwo, attending28: action.payload as boolean } }
+      return {
+        ...state,
+        guestTwo: {
+          ...state.guestTwo,
+          attending28: action.payload as boolean,
+          notAttending: false,
+        },
+      }
+
+    case `ADD_GUEST_ONE_NOT_ATTENDING`:
+      return {
+        ...state,
+        guestOne: {
+          ...state.guestOne,
+          attending27: false,
+          attending28: false,
+          notAttending: action.payload as boolean,
+        },
+      }
+    case `ADD_GUEST_TWO_NOT_ATTENDING`:
+      return {
+        ...state,
+        guestTwo: {
+          ...state.guestTwo,
+          attending27: false,
+          attending28: false,
+          notAttending: action.payload as boolean,
+        },
+      }
 
     case `ADD_GUEST_ONE_DIET`:
       return { ...state, guestOne: { ...state.guestOne, diet: action.payload as string } }
@@ -125,22 +162,24 @@ const AttendForm: FC = () => {
       <form className="w-full max-w-md" onSubmit={(e) => handleSubmit(e)}>
         <GuestInput state={state} guest="guestOne" dispatch={dispatch} />
 
-        <button type="button" onClick={() => setMultipleGuests(!multipleGuests)}>
-          <AddBoxSharpIcon />
-          <span>Lägg till ytterligare gäst</span>
-        </button>
+        <div className="md:flex md:items-center md:justify-center">
+          <button
+            type="button"
+            className="md:w-3/7 shadow border border-black cursor-pointer focus:shadow-outline focus:outline-none text-grey-400 font-semibold py-2 px-4 mt-10"
+            onClick={() => setMultipleGuests(!multipleGuests)}
+          >
+            <span>Lägg till ytterligare gäst</span>
+          </button>
+        </div>
 
         {multipleGuests && <GuestInput state={state} guest="guestTwo" dispatch={dispatch} />}
 
-        <div className="md:flex md:items-center">
-          <div className="md:w-1/3" />
-          <div className="md:w-2/3">
-            <input
-              className="w-1/2 shadow bg-black cursor-pointer focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 mt-10"
-              type="submit"
-              value="OSA"
-            />
-          </div>
+        <div className="md:flex md:items-center justify-center">
+          <input
+            className="md:w-3/5 shadow bg-black cursor-pointer focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 mt-10"
+            type="submit"
+            value="OSA"
+          />
         </div>
       </form>
     </div>

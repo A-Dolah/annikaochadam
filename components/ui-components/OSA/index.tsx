@@ -1,5 +1,3 @@
-import { FC } from 'react'
-
 import BorderFrame from '@components/BorderFrame'
 import AttendForm from '@containers/AttendForm'
 

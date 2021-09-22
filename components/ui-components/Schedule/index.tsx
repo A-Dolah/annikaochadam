@@ -11,7 +11,7 @@ import MingleIcon from '@components/Icons/Mingle'
 import PartyIcon from '@components/Icons/Party'
 import TeaIcon from '@components/Icons/Tea'
 
-import useWindowSize from '../../../hooks/useWindowSize'
+import useWindowSize from '@hooks/useWindowSize'
 
 const ScheduleHeader = ({ text }: { text: string }) => (
   <>
