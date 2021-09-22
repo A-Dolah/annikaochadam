@@ -1,10 +1,22 @@
 .textInputStyle {
   @apply bg-gray-100 focus:bg-white appearance-none border-black border focus:outline-none
-  w-full py-2 px-4 leading-tight;
+  w-full py-2 px-4 leading-tight text-center;
 }
+
+.checkboxStyle {
+  @apply bg-white border border-black w-6 h-6 flex flex-shrink-0 justify-center items-center mr-2 focus-within:border-black mt-6 mb-4;
+}
+
 
 .labelStyle {
   @apply text-gray-900 block font-thin text-lg sm:text-xl tracking-wide text-center mx-auto mt-4 mb-2;
+}
+
+.checkboxLabelStyle {
+  display: grid;
+  grid-template-columns: 15% auto;
+  text-align: start;
+  align-items: center;
 }
 
 .inputContainer {
