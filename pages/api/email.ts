@@ -8,9 +8,9 @@ dotenv.config()
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === `POST`) {
     try {
-      const { guestEmail, state } = req.body
+      const { guestEmail, guest } = req.body
 
-      const html = makeANiceEmail(state)
+      const html = makeANiceEmail(guest)
 
       await transporter.sendMail({
         from: gmailEmail,
