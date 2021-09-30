@@ -8,6 +8,7 @@ import React, { FC } from 'react'
 
 import Footer from '@components/Footer'
 import Navbar from '@containers/Navbar'
+import Sidebar from '@containers/Sidebar'
 
 import dalbyGastisPic from '@public/gastis_sky_view.jpeg'
 
@@ -24,16 +25,22 @@ const Layout: FC<Props> = ({ children }) => {
 
   return (
     <>
-      <div className="p-2 font-serif font-black tracking-wider	">
+      <div className={cn(styles.backgroundPattern, `p-2 font-serif font-black tracking-wider`)}>
         <div className={cn(styles.squareDecoContainer, styles.squareDecoContainer)}>
           <div className={`flex flex-col ${styles.squareDecoContent}`}>
             <Navbar />
+            <Sidebar open onClose={() => `hey`}>
+              <div>HEYO</div>
+              <div>HEYA</div>
+              <div>HEYI</div>
+            </Sidebar>
             {pathname === `/` && (
               <div
                 className={cn(styles.landingImageContainer, `-mb-2 -mx-2 z-0`)}
                 style={{ filter: `grayscale(0%)`, overflow: `hidden` }}
               >
                 <Image
+                  quality={100}
                   src={dalbyGastisPic}
                   alt="Gästis sky view"
                   priority
