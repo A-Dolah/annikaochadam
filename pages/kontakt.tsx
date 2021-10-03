@@ -1,7 +1,11 @@
-export default function Schema() {
+import ContactComponent from '@components/Contact'
+
+export default function Contact() {
   return (
-    <div className="flex flex-col items-center content-center">
-      <div>KONTAKT</div>
-    </div>
+    <main className="my-0 mx-auto">
+      <section className="flex justify-center items-center">
+        <ContactComponent />
+      </section>
+    </main>
   )
 }

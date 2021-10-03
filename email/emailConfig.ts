@@ -2,7 +2,7 @@
 import dotenv from 'dotenv'
 import nodemailer from 'nodemailer'
 
-import { State } from '@containers/AttendForm'
+import { Guest } from '@containers/AttendForm'
 
 dotenv.config({ path: `../env` })
 
@@ -12,8 +12,7 @@ const gmailPassword = process.env.GMAIL_PASSWORD
 const transportString = `smtps://${gmailEmail}:${gmailPassword}@smtp.gmail.com`
 const transporter = nodemailer.createTransport(transportString)
 
-export const makeANiceEmail = ({
-guestOne, guestTwo}: State) => {
+export const makeANiceEmail = (guest: Guest) => {
   const template = `<!DOCTYPE html>
               <html>
                 <head>
@@ -51,7 +50,7 @@ guestOne, guestTwo}: State) => {
                               font-size: 20px;
                               font-weight: 600;
                             ">Härmed bekräftas att
-                            ${guestTwo.guestInfoComplete ? `Ni` : `Du`} har anmält att ${guestTwo.guestInfoComplete ? `` : `Du`}:</h2>
+                            Du har anmält att Du:</h2>
                             <div style="
                               margin-bottom: 10px;
                             ">
@@ -61,48 +60,17 @@ guestOne, guestTwo}: State) => {
                               list-style-type: square;
                               list-style-position: inside;
                             ">
-                            ${guestTwo.guestInfoComplete ?
-                              `<h3 style="
-                                font-size: 18px;
-                                margin-bottom: 5px;
-                              ">${guestOne.firstName}</h3>`
-                              : ``
-                            }
                                 <li style="
                                   font-size: 15px;
                                 ">${
-                                  guestOne.attending27 ? `Kommer` : `Inte kommer`
+                                  guest.attending27 ? `Kommer` : `Inte kommer`
                                 } på grillfesten den 27 maj 2022.</li>
                                 <li style="
                                   font-size: 15px;
                                 ">${
-                                  guestOne.attending28 ? `Kommer` : `Inte kommer`
+                                  guest.attending28 ? `Kommer` : `Inte kommer`
                                 } på vigsel och bröllop den 28 maj 2022.</li>
                             </ul>
-                            ${
-                              guestTwo.guestInfoComplete
-                                ? `<ul style="
-                                      margin-top: 10px;
-                                      list-style-type: square;
-                                      list-style-position: inside;
-                                    ">
-                                    <h3 style="
-                                      font-size: 18px;
-                                      margin-bottom: 5px;
-                                    ">${guestTwo.firstName}</h3>
-                                      <li style="
-                                        font-size: 15px;
-                                      ">${
-                                        guestTwo.attending27 ? `Kommer` : `Inte kommer`
-                                      } på grillfesten den 27 maj 2022.</li>
-                                      <li style="
-                                        font-size: 15px;
-                                      ">${
-                                        guestTwo.attending28 ? `Kommer` : `Inte kommer`
-                                      } på vigsel och bröllop den 28 maj 2022.</li>
-                                  </ul>`
-                                : ``
-                            }
 
                             </div>
                             <div style="
@@ -127,7 +95,7 @@ guestOne, guestTwo}: State) => {
                           <p style="
                             margin-top: 20px;
                             font-size: 18px;
-                          ">Om ${guestTwo.guestInfoComplete ? `Ni` : `Du`} har några frågor, tveka inte att höra av ${guestTwo.guestInfoComplete ? `Er` : `Dig`} till denna mail.</p>
+                          ">Om Du har några frågor, tveka inte att höra av Dig till denna mail.</p>
 
                             <p style="
                               font-size: 18px;

@@ -14,12 +14,6 @@ export interface Guest {
   notAttending: boolean
   guestInfoComplete: boolean
 }
-
-interface State {
-  guestOne: Guest
-  guestTwo: Guest
-}
-
 interface TextInputProps {
   label: string
   htmlFor: string
@@ -52,7 +46,7 @@ const CheckboxInputComponent: FC<CheckboxInputProps> = ({ spanText, children }) 
 )
 
 interface Props {
-  state: State
+  state: Guest
   guest: 'guestOne' | 'guestTwo'
   dispatch: (arg: { type: string; payload: string | boolean }) => void
 }
@@ -65,7 +59,7 @@ const GuestInput: FC<Props> = ({ state, guest, dispatch }) => (
         className={styles.textInputStyle}
         id="inline-firstname"
         type="text"
-        value={state[guest].firstName}
+        value={state.firstName}
         onChange={(e) =>
           dispatch({
             type: `ADD_GUEST_${guest === `guestOne` ? `ONE` : `TWO`}_FIRST_NAME`,
@@ -81,7 +75,7 @@ const GuestInput: FC<Props> = ({ state, guest, dispatch }) => (
         className={styles.textInputStyle}
         id="inline-lastname"
         type="text"
-        value={state[guest].lastName}
+        value={state.lastName}
         onChange={(e) =>
           dispatch({
             type: `ADD_GUEST_${guest === `guestOne` ? `ONE` : `TWO`}_LAST_NAME`,
@@ -95,18 +89,18 @@ const GuestInput: FC<Props> = ({ state, guest, dispatch }) => (
       <input
         className="opacity-0 absolute"
         type="checkbox"
-        checked={state[guest].attending27}
+        checked={state.attending27}
         onChange={() =>
           dispatch({
             type: `ADD_GUEST_${guest === `guestOne` ? `ONE` : `TWO`}_ATTENDANCE_27`,
-            payload: !state[guest].attending27,
+            payload: !state.attending27,
           })
         }
       />
       <svg
         className={classNames(
           `fill-current w-4 h-4 text-black pointer-events-none`,
-          state[guest].attending27 ? `visible` : `hidden`
+          state.attending27 ? `visible` : `hidden`
         )}
         viewBox="0 0 20 20"
       >
@@ -118,18 +112,18 @@ const GuestInput: FC<Props> = ({ state, guest, dispatch }) => (
       <input
         className="opacity-0 absolute"
         type="checkbox"
-        checked={state[guest].attending28}
+        checked={state.attending28}
         onChange={() =>
           dispatch({
             type: `ADD_GUEST_${guest === `guestOne` ? `ONE` : `TWO`}_ATTENDANCE_28`,
-            payload: !state[guest].attending28,
+            payload: !state.attending28,
           })
         }
       />
       <svg
         className={classNames(
           `fill-current w-4 h-4 text-black pointer-events-none`,
-          state[guest].attending28 ? `visible` : `hidden`
+          state.attending28 ? `visible` : `hidden`
         )}
         viewBox="0 0 20 20"
       >
@@ -141,18 +135,18 @@ const GuestInput: FC<Props> = ({ state, guest, dispatch }) => (
       <input
         className="opacity-0 absolute"
         type="checkbox"
-        checked={state[guest].notAttending}
+        checked={state.notAttending}
         onChange={() =>
           dispatch({
             type: `ADD_GUEST_${guest === `guestOne` ? `ONE` : `TWO`}_NOT_ATTENDING`,
-            payload: !state[guest].notAttending,
+            payload: !state.notAttending,
           })
         }
       />
       <svg
         className={classNames(
           `fill-current w-4 h-4 text-black pointer-events-none`,
-          state[guest].notAttending ? `visible` : `hidden`
+          state.notAttending ? `visible` : `hidden`
         )}
         viewBox="0 0 20 20"
       >
@@ -164,7 +158,7 @@ const GuestInput: FC<Props> = ({ state, guest, dispatch }) => (
       <textarea
         className={styles.textInputStyle}
         id="inline-diet"
-        value={state[guest].diet}
+        value={state.diet}
         onChange={(e) =>
           dispatch({
             type: `ADD_GUEST_${guest === `guestOne` ? `ONE` : `TWO`}_DIET`,
@@ -177,7 +171,7 @@ const GuestInput: FC<Props> = ({ state, guest, dispatch }) => (
     <TextInputComponent label="Email" htmlFor="inline-email">
       <input
         className={styles.textInputStyle}
-        value={state[guest].email}
+        value={state.email}
         id="inline-email"
         onChange={(e) =>
           dispatch({

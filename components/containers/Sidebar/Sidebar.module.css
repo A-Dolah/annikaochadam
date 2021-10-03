@@ -1,0 +1,16 @@
+.root {
+  @apply fixed inset-0 overflow-hidden h-full z-50 transition-all;
+}
+
+.closed {
+  opacity: 0;
+  z-index: -1;
+}
+
+.listItem {
+  @apply font-sans text-gray-900 block font-thin text-xl tracking-wide text-center mx-auto my-8 sm:my-4;
+}
+
+.listItem:hover, .listItemActive {
+  @apply border-b font-extralight;
+}
