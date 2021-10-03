@@ -20,7 +20,7 @@ const ELEPHANTDB_VARIABLES: DbVariablesInterface = {
   password: process.env[`ELEPHANTDB_${ENVIRONMENT}_PASSWORD`] || ``,
 }
 
-const poolConfig: PoolConfig = {
+export const poolConfig: PoolConfig = {
   user: ELEPHANTDB_VARIABLES.user,
   host: ELEPHANTDB_VARIABLES.host,
   database: ELEPHANTDB_VARIABLES.database,
