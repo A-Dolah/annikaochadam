@@ -13,15 +13,23 @@ import TeaIcon from '@components/Icons/Tea'
 
 import useWindowSize from '@hooks/useWindowSize'
 
-const ScheduleHeader = ({ text }: { text: string }) => (
-  <>
-    <div className="border-b w-32 border-gray-600 mr-5 h-0" />
-    <div className="text-gray-900 relative uppercase font-thin text-lg sm:text-xl tracking-widest mx-2 whitespace-nowrap">
-      {text}
-    </div>
-    <div className="border-b w-32 border-gray-600 ml-5 h-0" />
-  </>
-)
+const ScheduleHeader = ({ text }: { text: string }) => {
+  const { width } = useWindowSize()
+
+  return (
+    <>
+      {(width as unknown as number) > 640 && (
+        <div className="border-b w-32 border-gray-600 mr-5 h-0" />
+      )}
+      <div className="text-gray-900 relative uppercase font-thin text-lg sm:text-xl tracking-widest mx-2 whitespace-nowrap">
+        {text}
+      </div>
+      {(width as unknown as number) > 640 && (
+        <div className="border-b w-32 border-gray-600 ml-5 h-0" />
+      )}
+    </>
+  )
+}
 
 interface ItemProps {
   time: string
@@ -34,7 +42,7 @@ const ScheduleItem: FC<ItemProps> = ({ time, happening, description, icon }) => 
   const { width } = useWindowSize()
 
   return (
-    <div className="flex flex-col md:flex-row items-center text-center md:text-left md:items-start justify-between gap-4 md:gap-8 my-8 md:my-4">
+    <div className="flex flex-col md:flex-row items-center text-center md:text-left md:items-start justify-between gap-4 md:gap-8 my-8 md:my-4 pb-4 sm:pb-0 border-b sm:border-none">
       <span className="text-base font-thin w-32 whitespace-nowrap">{time}</span>
       {(width as unknown as number) < 768 && (
         <div className="w-auto sm:w-32 self-center flex justify-center">{icon}</div>
