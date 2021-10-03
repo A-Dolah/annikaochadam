@@ -1,10 +1,7 @@
 /* eslint-disable prettier/prettier */
-import dotenv from 'dotenv'
 import nodemailer from 'nodemailer'
 
 import { Guest } from '@containers/AttendForm'
-
-dotenv.config({ path: `../env` })
 
 export const gmailEmail = process.env.GMAIL_EMAIL
 const gmailPassword = process.env.GMAIL_PASSWORD
