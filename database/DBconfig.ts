@@ -10,6 +10,8 @@ interface DbVariablesInterface {
 
 const ENVIRONMENT = process.env.NODE_ENV
 
+console.log(`ENVIRONMENT`, ENVIRONMENT)
+
 const ELEPHANTDB_VARIABLES: DbVariablesInterface = {
   user: process.env[`ELEPHANTDB_${ENVIRONMENT}_USER`] || ``,
   uri: process.env[`ELEPHANTDB_${ENVIRONMENT}_URI_CLOUD`] || ``,
