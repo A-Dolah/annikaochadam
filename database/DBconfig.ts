@@ -1,6 +1,4 @@
-import dotenv from 'dotenv'
-
-dotenv.config({ path: `../env` })
+import { Pool, PoolConfig } from 'pg'
 
 interface DbVariablesInterface {
   user: string
@@ -10,12 +8,28 @@ interface DbVariablesInterface {
   password: string
 }
 
-export const ENVIRONMENT = process.env.NODE_ENV
+const ENVIRONMENT = process.env.NODE_ENV
 
-export const ELEPHANTDB_VARIABLES: DbVariablesInterface = {
-  user: process.env.ELEPHANTDB_DEV_USER || ``,
-  uri: process.env.ELEPHANTDB_DEV_URI_CLOUD || ``,
-  host: process.env.ELEPHANTDB_DEV_HOST || ``,
-  database: process.env.ELEPHANTDB_DEV_DATABASE || ``,
-  password: process.env.ELEPHANTDB_DEV_PASSWORD || ``,
+const ELEPHANTDB_VARIABLES: DbVariablesInterface = {
+  user: process.env[`ELEPHANTDB_${ENVIRONMENT}_USER`] || ``,
+  uri: process.env[`ELEPHANTDB_${ENVIRONMENT}_URI_CLOUD`] || ``,
+  host: process.env[`ELEPHANTDB_${ENVIRONMENT}_HOST`] || ``,
+  database: process.env[`ELEPHANTDB_${ENVIRONMENT}_DATABASE`] || ``,
+  password: process.env[`ELEPHANTDB_${ENVIRONMENT}_PASSWORD`] || ``,
+}
+
+const poolConfig: PoolConfig = {
+  user: ELEPHANTDB_VARIABLES.user,
+  host: ELEPHANTDB_VARIABLES.host,
+  database: ELEPHANTDB_VARIABLES.database,
+  password: ELEPHANTDB_VARIABLES.password,
+  port: 5432,
+  ssl: true,
+}
+
+// eslint-disable-next-line import/no-mutable-exports
+export let pgPool: Pool
+
+export const setupPgPool = () => {
+  pgPool = new Pool(poolConfig)
 }

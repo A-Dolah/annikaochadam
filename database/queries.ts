@@ -11,8 +11,8 @@ export const recreateTable = `
                 first_name varchar(80) NOT NULL,
                 last_name varchar(80) NOT NULL,
                 diet varchar(300) NOT NULL,
-attending_27 BOOL,
-attending_28 BOOL,
-not_attending BOOL,
-date_created TIMESTAMP DEFAULT NOW())
+                attending_27 BOOL,
+                attending_28 BOOL,
+                not_attending BOOL,
+                date_created TIMESTAMP DEFAULT NOW())
 `
