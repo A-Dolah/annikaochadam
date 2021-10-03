@@ -33,7 +33,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       ])
       res.status(200).json({ data: rows })
     } catch (e) {
-      console.error(e)
+      console.error(`ENV:`, process.env.NODE_ENV)
+      console.error(`ERROR:`, e)
       res.status(500).json({ error: e })
     }
   }
