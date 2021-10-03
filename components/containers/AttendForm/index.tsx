@@ -1,6 +1,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import axios, { AxiosResponse } from 'axios'
+import { css } from '@emotion/react'
+import axios from 'axios'
+import cn from 'classnames'
 import { FC, useState, useReducer } from 'react'
+
+import ClipLoader from 'react-spinners/ClipLoader'
 
 import GuestInput from './GuestInput'
 
@@ -25,6 +29,13 @@ const initialState: Guest = {
   notAttending: false,
   guestInfoComplete: true,
 }
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border: 2px solid #ffffff;
+  border-bottom-color: transparent;
+`
 
 const guestReducer = (state: Guest, action: { type: string; payload: string | boolean }): Guest => {
   switch (action.type) {
@@ -89,10 +100,6 @@ const AttendForm: FC = () => {
     await submitGuest()
   }
 
-  if (loading) {
-    return <div>Loading---</div>
-  }
-
   return (
     <div className="flex items-center justify-center">
       <form className="w-full max-w-md" onSubmit={(e) => handleSubmit(e)}>
@@ -100,10 +107,17 @@ const AttendForm: FC = () => {
 
         <div className="md:flex md:items-center justify-center">
           <input
-            className="md:w-3/5 shadow bg-black cursor-pointer focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 mt-10"
+            className={cn(
+              `md:w-3/5 shadow cursor-pointer focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 mt-10`,
+              loading ? `bg-gray-600` : `bg-black`
+            )}
             type="submit"
-            value="OSA"
+            value={!loading ? `OSA` : ``}
+            disabled={loading}
           />
+          <div className="absolute z-50 pt-10">
+            <ClipLoader loading={loading} color="ffffff" css={override} size={25} />
+          </div>
         </div>
       </form>
     </div>
