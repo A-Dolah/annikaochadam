@@ -7,6 +7,8 @@ export const gmailEmail = process.env.GMAIL_EMAIL
 const gmailPassword = process.env.GMAIL_PASSWORD
 
 const transportString = `smtps://${gmailEmail}:${gmailPassword}@smtp.gmail.com`
+
+console.log(`TRANSPORTSTRING`, transportString)
 const transporter = nodemailer.createTransport(transportString)
 
 export const makeANiceEmail = (guest: Guest) => {
