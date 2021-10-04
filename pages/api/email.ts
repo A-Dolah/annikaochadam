@@ -18,6 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       res.status(200).json(`Email sent`)
     } catch (e) {
+      console.log(`ERROR`, e)
       res.status(500).json({ error: e })
     }
   }
