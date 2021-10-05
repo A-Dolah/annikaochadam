@@ -4,12 +4,20 @@ import nodemailer from 'nodemailer'
 import { Guest } from '@containers/AttendForm'
 
 export const gmailEmail = process.env.GMAIL_EMAIL
-const gmailPassword = process.env.GMAIL_PASSWORD
 
-const transportString = `smtps://${gmailEmail}:${gmailPassword}@smtp.gmail.com`
+const transporter = nodemailer.createTransport({
+  host: `smtp.gmail.com`,
+   port: 465,
+  secure: true,
+  auth: {
+    type: `OAuth2`,
+    user: gmailEmail,
+    clientId: process.env.OAUTH_CLIENTID,
+    clientSecret: process.env.OAUTH_CLIENT_SECRET,
+    refreshToken: process.env.OAUTH_REFRESH_TOKEN,
+  },
+})
 
-console.log(`TRANSPORTSTRING`, transportString)
-const transporter = nodemailer.createTransport(transportString)
 
 export const makeANiceEmail = (guest: Guest) => {
   const template = `<!DOCTYPE html>
