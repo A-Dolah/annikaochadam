@@ -1,0 +1,72 @@
+.squareDecoContainer {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns:
+    [outer-start]  10px
+    [mid-start]    10px
+    [inner-start]  5px
+    [gap-start]    1fr
+    [gap-end]      4px
+    [inner-end]    10px
+    [mid-end]      10px
+    [outer-end]
+  ;
+  grid-template-rows:
+    [outer-start]  10px
+    [mid-start]    10px
+    [inner-start]  5px
+    [gap-start]    1fr
+    [gap-end]      4px
+    [inner-end]    10px
+    [mid-end]      10px
+    [outer-end]
+  ;
+}
+
+.squareDecoContainer .squareDecoContent {
+  grid-area: inner;
+}
+
+.squareDecoContainer .squareDecoInner {
+  grid-area: mid;
+  border: 2px solid black;
+}
+
+.squareDecoContainer .squareDecoSquareLeftTop {
+  grid-column: outer-start / inner-start;
+  grid-row: outer-start / inner-start;
+  border: 3px solid black;
+}
+
+.squareDecoContainer .squareDecoSquareLeftBottom {
+  grid-column: outer-start / inner-start;
+  grid-row: inner-end / outer-end;
+  border: 3px solid black;
+}
+
+.squareDecoContainer .squareDecoSquareRightTop {
+  grid-column: inner-end / outer-end;
+  grid-row: outer-start / inner-start;
+  border: 3px solid black;
+}
+
+.squareDecoContainer .squareDecoSquareRightBottom {
+  grid-column: inner-end / outer-end;
+  grid-row: inner-end / outer-end;
+  border: 3px solid black;
+}
+
+.squareDecoContainer .squareDecoTall {
+  grid-column: gap-start / gap-end;
+  grid-row: outer-start / outer-end;
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+}
+
+.squareDecoContainer .squareDecoWide {
+  grid-column: outer-start / outer-end;
+  grid-row: gap-start / gap-end;
+  border-left: 3px solid black;
+  border-right: 3px solid black;
+}
+

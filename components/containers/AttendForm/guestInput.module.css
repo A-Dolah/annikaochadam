@@ -9,7 +9,7 @@
 
 
 .labelStyle {
-  @apply text-gray-900 block font-thin text-lg sm:text-xl tracking-wide text-center mx-auto mt-4 mb-2;
+  @apply text-gray-900 block font-extralight text-lg sm:text-xl tracking-wide text-center mx-auto mt-4 mb-2;
 }
 
 .checkboxLabelStyle {

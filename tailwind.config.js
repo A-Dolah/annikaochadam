@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ['Playfair Display', 'serif'],
+        serif: ['Playfair Display Light', 'serif'],
+        sans: ['Louis George Cafe', 'sans'],
       },
     },
   },
