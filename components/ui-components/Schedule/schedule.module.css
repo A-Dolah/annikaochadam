@@ -1,0 +1,5 @@
+.grid {
+  display: grid;
+  grid-template-columns: fit-content(200px) 1fr fit-content(200px);
+  width: 100%;
+}

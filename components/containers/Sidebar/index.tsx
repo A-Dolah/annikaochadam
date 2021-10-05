@@ -1,18 +1,25 @@
 import Portal from '@reach/portal'
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 import classNames from 'classnames'
+import { useRouter } from 'next/router'
 import { FC, useEffect, useRef } from 'react'
+
+import { NavLinks } from '@containers/Navbar'
 
 import s from './Sidebar.module.css'
 
 interface Props {
-  children: any
   open: boolean
   onClose: () => void
 }
 
-const Sidebar: FC<Props> = ({ children, open = false, onClose }) => {
+const Sidebar: FC<Props> = ({ open = false, onClose }) => {
+  const { pathname } = useRouter()
+
   const ref = useRef() as React.MutableRefObject<HTMLDivElement>
+
+  const isActive = (linkPath: string) => pathname === linkPath
+
   useEffect(() => {
     if (ref.current) {
       if (open) {
@@ -35,7 +42,7 @@ const Sidebar: FC<Props> = ({ children, open = false, onClose }) => {
         })}
         ref={ref}
       >
-        <div className="absolute inset-0 overflow-hidden sm:overflow-visible">
+        <div className="absolute right-0 inset-0 overflow-hidden sm:overflow-visible">
           <div
             role="button"
             aria-label="Close button"
@@ -48,7 +55,9 @@ const Sidebar: FC<Props> = ({ children, open = false, onClose }) => {
           <section className="absolute inset-y-0 right-0 px-5 pt-44 sm:pt-16 max-w-full w-screen sm:w-auto flex sm:pl-16 outline-none bg-white">
             <div className="h-full w-full md:w-screen md:max-w-md">
               <div className="h-full w-full flex flex-col text-base w-100 overflow-y-auto">
-                {children}
+                <ul className="flex-col content-evenly justify-between mx-auto w-60 sm:w-96 font-sans">
+                  <NavLinks />
+                </ul>
               </div>
             </div>
           </section>

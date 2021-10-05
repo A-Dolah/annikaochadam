@@ -5,25 +5,47 @@
 
 @layer base {
   @font-face {
-    font-family: 'Playfair Display';
+    font-family: 'Louis George Cafe';
     font-style: italic;
     font-weight: 400;
-    src: url('/public/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf');
+    src: url('/fonts/louis_george_caf/Louis George Cafe Italic.ttf');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Louis George Cafe';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/louis_george_caf/Louis George Cafe.ttf');
     font-display: swap;
   }
 
   @font-face {
     font-family: 'Playfair Display';
-    font-style: normal;
-    font-weight: 400;
-    src: url('/public/fonts/PlayfairDisplay-VariableFont_wght.ttf');
+    font-style: italic;
+    font-weight: 600;
+    src: url('/fonts/louis_george_caf/Louis George Cafe Bold Italic.ttf');
     font-display: swap;
   }
   @font-face {
-    font-family: 'Playfair Display';
+    font-family: 'Louis George Cafe';
     font-style: normal;
     font-weight: 600;
-    src: url('/public/fonts/PlayfairDisplay-VariableFont_wght_600.ttf');
+    src: url('/fonts/louis_george_caf/Louis George Cafe Bold.ttf');
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Louis George Cafe';
+    font-style: italic;
+    font-weight: 200;
+    src: url('/fonts/louis_george_caf/Louis George Cafe Light Italic.ttf');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Louis George Cafe';
+    font-style: normal;
+    font-weight: 200;
+    src: url('/fonts/louis_george_caf/Louis George Cafe Light.ttf');
     font-display: swap;
   }
 }

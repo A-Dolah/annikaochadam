@@ -12,13 +12,37 @@ const Head: FC = () => (
       <link rel="manifest" href="/site.webmanifest" key="site-manifest" />
       <link
         rel="preload"
-        href="/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf"
+        href="/fonts/louis_george_caf/Louis George Cafe Italic.ttf"
         as="font"
         crossOrigin=""
       />
       <link
         rel="preload"
-        href="/fonts/PlayfairDisplay-VariableFont_wght.ttf"
+        href="/fonts/louis_george_caf/Louis George Cafe.ttf"
+        as="font"
+        crossOrigin=""
+      />
+      <link
+        rel="preload"
+        href="/fonts/louis_george_caf/Louis George Cafe Bold Italic.ttf"
+        as="font"
+        crossOrigin=""
+      />
+      <link
+        rel="preload"
+        href="/fonts/louis_george_caf/Louis George Cafe Bold.ttf"
+        as="font"
+        crossOrigin=""
+      />
+      <link
+        rel="preload"
+        href="/fonts/louis_george_caf/Louis George Cafe Light Italic.ttf"
+        as="font"
+        crossOrigin=""
+      />
+      <link
+        rel="preload"
+        href="/fonts/louis_george_caf/Louis George Cafe Light.ttf"
         as="font"
         crossOrigin=""
       />
