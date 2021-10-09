@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import classNames from 'classnames'
-import { FC } from 'react'
+import { FC, Dispatch, SetStateAction } from 'react'
 
 import styles from './guestInput.module.css'
 
@@ -12,14 +12,27 @@ export interface Guest {
   attending27: boolean
   attending28: boolean
   notAttending: boolean
-  guestInfoComplete: boolean
 }
+
+interface ValidState {
+  valid: boolean
+  errorText: string
+}
+
 interface TextInputProps {
   label: string
   htmlFor: string
+  error?: ValidState
+  firstRenderRef?: boolean
 }
 
-const TextInputComponent: FC<TextInputProps> = ({ label, htmlFor, children }) => (
+const TextInputComponent: FC<TextInputProps> = ({
+  label,
+  htmlFor,
+  error,
+  firstRenderRef,
+  children,
+}) => (
   <div className={styles.inputContainer}>
     <div>
       <label htmlFor={htmlFor} className={styles.labelStyle}>
@@ -27,6 +40,11 @@ const TextInputComponent: FC<TextInputProps> = ({ label, htmlFor, children }) =>
       </label>
     </div>
     <div className="md:w-3/4 mx-auto">{children}</div>
+    {error && !firstRenderRef && (
+      <p className="md:w-3/4 mx-auto italic text-center text-xs mt-2 text-red-400">
+        {error.errorText}
+      </p>
+    )}
   </div>
 )
 
@@ -46,16 +64,32 @@ const CheckboxInputComponent: FC<CheckboxInputProps> = ({ spanText, children }) 
 )
 
 interface Props {
+  validFirstName: ValidState
+  validLastName: ValidState
+  validEmail: ValidState
+  firstRenderRef: boolean
   state: Guest
   guest: 'guestOne' | 'guestTwo'
   dispatch: (arg: { type: string; payload: string | boolean }) => void
 }
 
-const GuestInput: FC<Props> = ({ state, guest, dispatch }) => (
+const GuestInput: FC<Props> = ({
+  state,
+  guest,
+  validFirstName,
+  validLastName,
+  validEmail,
+  firstRenderRef,
+  dispatch,
+}) => (
   <>
-    <TextInputComponent label="Förnamn" htmlFor="inline-firstname">
+    <TextInputComponent
+      label="Förnamn"
+      htmlFor="inline-firstname"
+      error={validFirstName}
+      firstRenderRef={firstRenderRef}
+    >
       <input
-        required
         className={styles.textInputStyle}
         id="inline-firstname"
         type="text"
@@ -69,9 +103,13 @@ const GuestInput: FC<Props> = ({ state, guest, dispatch }) => (
       />
     </TextInputComponent>
 
-    <TextInputComponent label="Efternamn" htmlFor="inline-lastname">
+    <TextInputComponent
+      label="Efternamn"
+      htmlFor="inline-lastname"
+      error={validLastName}
+      firstRenderRef={firstRenderRef}
+    >
       <input
-        required
         className={styles.textInputStyle}
         id="inline-lastname"
         type="text"
@@ -168,7 +206,12 @@ const GuestInput: FC<Props> = ({ state, guest, dispatch }) => (
       />
     </TextInputComponent>
 
-    <TextInputComponent label="Email" htmlFor="inline-email">
+    <TextInputComponent
+      label="Email"
+      htmlFor="inline-email"
+      error={validEmail}
+      firstRenderRef={firstRenderRef}
+    >
       <input
         className={styles.textInputStyle}
         value={state.email}
