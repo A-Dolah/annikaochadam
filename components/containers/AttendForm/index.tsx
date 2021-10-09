@@ -105,10 +105,10 @@ const AttendForm: FC = () => {
       <form className="w-full max-w-md" onSubmit={(e) => handleSubmit(e)}>
         <GuestInput state={state} guest="guestOne" dispatch={dispatch} />
 
-        <div className="md:flex md:items-center justify-center">
+        <div className="flex items-center justify-center">
           <input
             className={cn(
-              `md:w-3/5 shadow cursor-pointer focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 mt-10`,
+              `w-3/5 shadow cursor-pointer focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 mt-10`,
               loading ? `bg-gray-600` : `bg-black`
             )}
             type="submit"

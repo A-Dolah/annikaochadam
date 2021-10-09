@@ -61,12 +61,14 @@ const ScheduleItem: FC<ItemProps> = ({ time, happening, description, icon }) => 
 }
 
 const Schedule = () => (
-  <div className="bg-white w-full sm:w-10/12 xl:w-1/2 p-4 flex flex-col items-center">
+  <div className="bg-white w-full sm:w-10/12 xl:w-1/2 pb-4 flex flex-col items-center">
     <p className="font-sans mt-6 mb-10 text-base xl:text-lg font-extralight text-center">
       Till bröllopet samlas Vi vänner och familj från många olika delar av Sverige och världen. Vi
       passar därför på att umgås och fira hela helgen. Här finner Ni schemat för helgen!
     </p>
-    <p className="mb-6 text-2xl xl:text-3xl font-extralight">Schema för bröllopshelgen</p>
+    <p className="mb-6 text-2xl xl:text-3xl font-extralight text-center">
+      Schema för bröllopshelgen
+    </p>
 
     <BorderFrame>
       <div className="flex items-center justify-center sm:justify-between mt-4">
