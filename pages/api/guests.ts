@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import { pgPool, setupPgPool, poolConfig } from 'database/DBconfig'
+import { pgPool, setupPgPool } from 'database/DBconfig'
 
 import { selectAllGuestsQuery, insertGuestQuery } from 'database/queries'
 
@@ -33,11 +33,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       ])
       res.status(200).json({ data: rows })
     } catch (e) {
-      console.error(`USER:`, poolConfig.user)
-      console.error(`HOST:`, poolConfig.host)
-      console.error(`DATABASE:`, poolConfig.database)
-      console.error(`PASSWORD:`, poolConfig.password)
-      console.error(`ERROR:`, e)
       res.status(500).json({ error: e })
     }
   }

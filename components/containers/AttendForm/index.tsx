@@ -2,11 +2,15 @@
 import { css } from '@emotion/react'
 import axios from 'axios'
 import cn from 'classnames'
-import { FC, useState, useReducer } from 'react'
+import debounce from 'lodash.debounce'
+import { useRouter } from 'next/router'
+import { FC, useState, useReducer, useCallback, useRef, useEffect } from 'react'
 
 import ClipLoader from 'react-spinners/ClipLoader'
 
 import GuestInput from './GuestInput'
+
+import { nameValidator, emailValidator } from './services/inputValidators'
 
 export interface Guest {
   firstName: string
@@ -16,7 +20,6 @@ export interface Guest {
   attending27: boolean
   attending28: boolean
   notAttending: boolean
-  guestInfoComplete: boolean
 }
 
 const initialState: Guest = {
@@ -27,7 +30,6 @@ const initialState: Guest = {
   attending27: false,
   attending28: false,
   notAttending: false,
-  guestInfoComplete: true,
 }
 
 const override = css`
@@ -75,11 +77,68 @@ const guestReducer = (state: Guest, action: { type: string; payload: string | bo
 }
 
 const AttendForm: FC = () => {
-  const [loading, setLoading] = useState(false)
-
+  const router = useRouter()
   const [state, dispatch] = useReducer(guestReducer, initialState)
 
+  const firstRender = useRef(true)
+
+  const [loading, setLoading] = useState(false)
+  const [disabled, setDisabled] = useState(true)
+
+  // First Name state and validation
+  const [validFirstName, setValidFirstName] = useState({
+    valid: false,
+    errorText: ``,
+  })
+  const validateFirstName = (input: string) => setValidFirstName(nameValidator(input, `firstName`))
+  const debouncedValidateFirstName = useCallback(debounce(validateFirstName, 1000), [])
+  useEffect(() => {
+    if (firstRender.current) {
+      return
+    }
+    debouncedValidateFirstName(state.firstName)
+  }, [state.firstName])
+
+  // Last Name state and validation
+  const [validLastName, setValidLastName] = useState({
+    valid: false,
+    errorText: ``,
+  })
+  const validateLastName = (input: string) => setValidLastName(nameValidator(input, `lastName`))
+  const debouncedValidateLastName = useCallback(debounce(validateLastName, 1000), [])
+  useEffect(() => {
+    if (firstRender.current) {
+      return
+    }
+    debouncedValidateLastName(state.lastName)
+  }, [state.lastName])
+
+  // Email Name state and validation
+  const [validEmail, setValidEmail] = useState({
+    valid: false,
+    errorText: ``,
+  })
+  const validateEmail = (input: string) => setValidEmail(emailValidator(input))
+  const debouncedValidateEmail = useCallback(debounce(validateEmail, 1000), [])
+  useEffect(() => {
+    if (firstRender.current) {
+      return
+    }
+    debouncedValidateEmail(state.email)
+  }, [state.email])
+
+  useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false
+      return
+    }
+    if (validFirstName.valid && validLastName.valid && validEmail.valid) {
+      setDisabled(false)
+    }
+  }, [validFirstName, validLastName, validEmail])
+
   const submitGuest = async () => {
+    firstRender.current = true
     try {
       setLoading(true)
 
@@ -87,7 +146,7 @@ const AttendForm: FC = () => {
 
       await axios.post(`/api/email`, { guestEmail: state.email, guest: state })
 
-      setLoading(false)
+      router.push(`/bekraftelse`)
     } catch (error) {
       console.log(`ERROR:`, error)
       setLoading(false)
@@ -103,17 +162,26 @@ const AttendForm: FC = () => {
   return (
     <div className="flex items-center justify-center">
       <form className="w-full max-w-md" onSubmit={(e) => handleSubmit(e)}>
-        <GuestInput state={state} guest="guestOne" dispatch={dispatch} />
+        <GuestInput
+          validFirstName={validFirstName}
+          validLastName={validLastName}
+          validEmail={validEmail}
+          firstRenderRef={firstRender.current}
+          state={state}
+          guest="guestOne"
+          dispatch={dispatch}
+        />
 
-        <div className="md:flex md:items-center justify-center">
+        <div className="flex items-center justify-center">
           <input
+            disabled={disabled || loading}
             className={cn(
-              `md:w-3/5 shadow cursor-pointer focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 mt-10`,
-              loading ? `bg-gray-600` : `bg-black`
+              `w-3/5 shadow cursor-pointer focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 mt-10`,
+              loading ? `bg-gray-600` : `bg-black`,
+              disabled ? `bg-gray-600` : `bg-black`
             )}
             type="submit"
             value={!loading ? `OSA` : ``}
-            disabled={loading}
           />
           <div className="absolute z-50 pt-10">
             <ClipLoader loading={loading} color="ffffff" css={override} size={25} />
