@@ -3,6 +3,7 @@ import { css } from '@emotion/react'
 import axios from 'axios'
 import cn from 'classnames'
 import debounce from 'lodash.debounce'
+import { useRouter } from 'next/router'
 import { FC, useState, useReducer, useCallback, useRef, useEffect } from 'react'
 
 import ClipLoader from 'react-spinners/ClipLoader'
@@ -76,6 +77,7 @@ const guestReducer = (state: Guest, action: { type: string; payload: string | bo
 }
 
 const AttendForm: FC = () => {
+  const router = useRouter()
   const [state, dispatch] = useReducer(guestReducer, initialState)
 
   const firstRender = useRef(true)
@@ -144,7 +146,7 @@ const AttendForm: FC = () => {
 
       await axios.post(`/api/email`, { guestEmail: state.email, guest: state })
 
-      setLoading(false)
+      router.push(`/bekraftelse`)
     } catch (error) {
       console.log(`ERROR:`, error)
       setLoading(false)

@@ -66,9 +66,9 @@ const Schedule = () => (
       Till bröllopet samlas Vi vänner och familj från många olika delar av Sverige och världen. Vi
       passar därför på att umgås och fira hela helgen. Här finner Ni schemat för helgen!
     </p>
-    <p className="mb-6 text-2xl xl:text-3xl font-extralight text-center">
+    <h2 className="mb-6 text-2xl xl:text-3xl font-extralight text-center">
       Schema för bröllopshelgen
-    </p>
+    </h2>
 
     <BorderFrame>
       <div className="flex items-center justify-center sm:justify-between mt-4">
