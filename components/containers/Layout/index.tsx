@@ -2,7 +2,6 @@ import cn from 'classnames'
 import { NextPage } from 'next'
 
 import Image from 'next/image'
-import Link from 'next/link'
 
 import { useRouter } from 'next/router'
 
@@ -54,7 +53,7 @@ const Layout: FC<Props> = ({ children }) => {
             </div>
           )}
           <Navbar />
-          <main className="pt-0 p-2 sm:p-11 sm:pt-0 min-h-screen z-40">{children}</main>
+          <main className="pt-0 p-2 sm:p-11 sm:pt-0 z-40">{children}</main>
           <Footer />
         </ArtDecoContainer>
       </div>

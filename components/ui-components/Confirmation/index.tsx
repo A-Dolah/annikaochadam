@@ -1,4 +1,3 @@
-import cn from 'classnames'
 import Link from 'next/link'
 
 const Confirmation = () => (
@@ -9,17 +8,18 @@ const Confirmation = () => (
       in att höra av Dig!
     </p>
     <div className="flex-col items-center justify-center mt-16">
-      <Link href="/">
-        <a className="w-full hadow cursor-pointer focus:shadow-outline focus:outline-none text-white bg-black py-2 px-4 font-extralight">
-          Tillbaka till startsidan
+      <Link href="/osa">
+        <a className="w-full border cursor-pointer text-black bg-white py-4 px-4 whitespace-nowra font-extralight">
+          Anmäl ytterligare gäst
         </a>
       </Link>
+
       <div className="flex justify-center items-center h-24">
         <p className="italic ">eller</p>
       </div>
-      <Link href="/osa">
-        <a className="w-full shadow cursor-pointer text-white bg-black py-2 px-4 whitespace-nowra font-extralight">
-          Anmäl ytterligare gäst
+      <Link href="/">
+        <a className="w-full hadow cursor-pointer focus:shadow-outline focus:outline-none text-white bg-black py-4 px-4 font-extralight">
+          Tillbaka till startsidan
         </a>
       </Link>
     </div>

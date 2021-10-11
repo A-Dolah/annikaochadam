@@ -10,7 +10,7 @@ export const nameValidator = (name: string, nameType: NameType) => {
     }
   }
 
-  if (!/^[a-zA-Z]+$/.test(name)) {
+  if (!/^[a-öA-Ö]+$/.test(name)) {
     return {
       valid: false,
       errorText: `Ange namn med endast bokstäver`,

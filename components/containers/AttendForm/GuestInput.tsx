@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import classNames from 'classnames'
-import { FC, Dispatch, SetStateAction } from 'react'
+import { FC } from 'react'
 
 import styles from './guestInput.module.css'
 
@@ -192,7 +192,7 @@ const GuestInput: FC<Props> = ({
       </svg>
     </CheckboxInputComponent>
 
-    <TextInputComponent label="Kost-eller dietönskemål" htmlFor="inline-diet">
+    <TextInputComponent label="Eventuella kostönskemål" htmlFor="inline-diet">
       <textarea
         className={styles.textInputStyle}
         id="inline-diet"
