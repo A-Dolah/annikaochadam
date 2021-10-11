@@ -192,7 +192,7 @@ const GuestInput: FC<Props> = ({
       </svg>
     </CheckboxInputComponent>
 
-    <TextInputComponent label="Kost-eller dietönskemål" htmlFor="inline-diet">
+    <TextInputComponent label="Eventuella kostönskemål" htmlFor="inline-diet">
       <textarea
         className={styles.textInputStyle}
         id="inline-diet"
