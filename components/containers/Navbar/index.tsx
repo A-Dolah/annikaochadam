@@ -82,7 +82,7 @@ const NavbarRoot: FC = () => {
   return (
     <>
       {(width as unknown as number) <= 640 ? (
-        <nav className={cn(styles.navbar, `h-15 flex items-center justify-center my-0`)}>
+        <nav className={cn(styles.navbar, `h-15 flex items-center justify-center my-0 z-50`)}>
           <div className={displaySidebar ? `fixed top-2 right-2 z-50` : ``}>
             <MobileNav />
           </div>

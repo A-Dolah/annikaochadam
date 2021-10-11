@@ -1,5 +1,5 @@
 .root {
-  @apply fixed inset-0 overflow-hidden h-full z-50;
+  @apply fixed inset-0 overflow-hidden h-full z-40;
 }
 
 .closed {
