@@ -2,8 +2,8 @@ import BorderFrame from '@components/BorderFrame'
 
 const Contact = () => (
   <div className="bg-white w-full sm:w-10/12 xl:w-1/2 p-2 flex flex-col items-center">
-    <p className="font-sans mt-6 mb-10 text-base xl:text-lg font-extralight">
-      Om ni har några frågor, tveka inte att höra av er till oss eller våra toastmasters!.
+    <p className="font-sans mt-6 mb-10 text-base xl:text-lg font-extralight text-center">
+      Om ni har några frågor, tveka inte att höra av er till oss eller våra toastmasters!
     </p>
     <p className="mb-4 text-2xl xl:text-3xl font-extralight">Kontakt</p>
 
@@ -21,7 +21,7 @@ const Contact = () => (
         <div className="mt-5 mb-5">
           <h3 className="mb-2">Telefon:</h3>
           <p className="font-extralight">Annika: 073-057 83 17</p>
-          <p className="font-extralight">Adam: 0736-49 90 79</p>
+          <p className="font-extralight">Adam: 073-649 90 79</p>
         </div>
         <div className="border-b" />
         <div className="text-gray-900 relative uppercase font-extralight text-lg sm:text-xl tracking-widest mt-5">
@@ -30,8 +30,8 @@ const Contact = () => (
         <div className="mt-3">
           <h3 className="mb-2">Email:</h3>
           <div>
-            <a className="font-extralight text-blue-500" href="mailto:per@gmail.com">
-              per@gmail.com
+            <a className="font-extralight text-blue-500" href="mailto:perwikman89@gmail.com">
+              perwikman89@gmail.com
             </a>
           </div>
           <div>
