@@ -1,7 +1,7 @@
 import LinkIcon from '@components/Icons/Link'
 
 const Footer = () => (
-  <footer className="footer bg-white relative border-t border-black">
+  <footer className="footer bg-white relative border-t border-black mx-2 sm:mx-11">
     <div className="px-6 flex-col items-center justify-center">
       <div className="mt-6 mb-3 text-center">
         <a

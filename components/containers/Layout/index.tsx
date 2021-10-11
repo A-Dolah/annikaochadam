@@ -54,7 +54,7 @@ const Layout: FC<Props> = ({ children }) => {
             </div>
           )}
           <Navbar />
-          <main className="pt-0 p-2 sm:p-11 sm:pt-0 min-h-screen z-40">{children}</main>
+          <main className="pt-0 p-2 sm:p-11 sm:pt-0 z-40">{children}</main>
           <Footer />
         </ArtDecoContainer>
       </div>

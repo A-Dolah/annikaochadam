@@ -51,6 +51,15 @@ export const NavLinks = () => {
           <a>Kontakt</a>
         </Link>
       </li>
+      <li
+        className={cn(styles.listItem, {
+          [styles.listItemActive]: isActive(`/faq`),
+        })}
+      >
+        <Link href="/faq">
+          <a>FAQ</a>
+        </Link>
+      </li>
     </>
   )
 }
@@ -82,7 +91,7 @@ const NavbarRoot: FC = () => {
   return (
     <>
       {(width as unknown as number) <= 640 ? (
-        <nav className={cn(styles.navbar, `h-15 flex items-center justify-center my-0 z-50`)}>
+        <nav className={cn(styles.navbar, `h-15 flex items-center justify-center mb-0 mt-2 z-50`)}>
           <div className={displaySidebar ? `fixed top-2 right-2 z-50` : ``}>
             <MobileNav />
           </div>

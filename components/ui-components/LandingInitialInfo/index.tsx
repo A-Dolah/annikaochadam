@@ -1,8 +1,24 @@
 const LandingInitialInfo = () => (
   <>
-    <section className="mt-14 flex flex-col items-center text-center	gap-3 h-4/6">
-      <div className="w-10/12" />
-      <div>Info</div>
+    <section className="mt-4 sm:mt-10 flex flex-col text-center gap-3 h-4/6">
+      <div className="w-12/12" />
+      <div>
+        <div className="flex flex-col items-center md:items-center max-w-md">
+          <p className="text-4xl md:whitespace-nowrap text-center">Annika & Adam</p>
+          <p className="mt-8 mb-4">Den 27-29 maj 2022 firar vi bröllop i Dalby.</p>
+          <p className="font-extralight mb-4">
+            På denna sida publiceras information om bröllopshelgen och anmälan sker under länken "Anmälan".
+            <br />
+            Vi hoppas att ni vill komma och fira med oss!
+          </p>
+
+          <p className="font-extralight mb-6 sm:mb-4">
+            Med vänlig hälsning,
+            <br />
+            Annika & Adam
+          </p>
+        </div>
+      </div>
     </section>
   </>
 )
