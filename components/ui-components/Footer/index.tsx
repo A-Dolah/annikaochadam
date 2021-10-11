@@ -1,5 +1,3 @@
-import LinkIcon from '@components/Icons/Link'
-
 const Footer = () => (
   <footer className="footer bg-white relative border-t border-black mx-2 sm:mx-11">
     <div className="px-6 flex-col items-center justify-center">

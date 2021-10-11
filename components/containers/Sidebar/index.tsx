@@ -1,7 +1,6 @@
 import Portal from '@reach/portal'
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 import classNames from 'classnames'
-import { useRouter } from 'next/router'
 import { FC, useEffect, useRef } from 'react'
 
 import { NavLinks } from '@containers/Navbar'
@@ -14,11 +13,7 @@ interface Props {
 }
 
 const Sidebar: FC<Props> = ({ open = false, onClose }) => {
-  const { pathname } = useRouter()
-
   const ref = useRef() as React.MutableRefObject<HTMLDivElement>
-
-  const isActive = (linkPath: string) => pathname === linkPath
 
   useEffect(() => {
     if (ref.current) {

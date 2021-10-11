@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import classNames from 'classnames'
-import { FC, Dispatch, SetStateAction } from 'react'
+import { FC } from 'react'
 
 import styles from './guestInput.module.css'
 

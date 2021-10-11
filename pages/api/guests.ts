@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 import { pgPool, setupPgPool } from 'database/DBconfig'
 
-import { selectAllGuestsQuery, insertGuestQuery } from 'database/queries'
+import { insertGuestQuery } from 'database/queries'
 
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

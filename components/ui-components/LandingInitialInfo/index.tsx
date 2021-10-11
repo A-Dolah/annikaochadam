@@ -7,7 +7,8 @@ const LandingInitialInfo = () => (
           <p className="text-4xl md:whitespace-nowrap text-center">Annika & Adam</p>
           <p className="mt-8 mb-4">Den 27-29 maj 2022 firar vi bröllop i Dalby.</p>
           <p className="font-extralight mb-4">
-            På denna sida publiceras information om bröllopshelgen och anmälan sker under länken "Anmälan".
+            På denna sida publiceras information om bröllopshelgen och anmälan sker under länken
+            &quot;Anmälan&quot;.
             <br />
             Vi hoppas att ni vill komma och fira med oss!
           </p>

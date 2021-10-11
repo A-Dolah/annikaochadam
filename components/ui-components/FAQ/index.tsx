@@ -11,11 +11,11 @@ const FAQ = () => (
     <BorderFrame>
       <div className="flex-col justify-center items-center text-center">
         <div className="italic font-extralight text-center">
-          Till bröllopet har vi valt klädkoden "mörk kostym". Det innebär i grova drag att om man
-          vill ha på sig kostym brukar den ha en mörk färg (t.ex. mörkblå, mörkbrun eller mörkgrå).
-          Skorna ska traditionellt vara svarta, men detta har Adam brutit mot flera gånger. Slips
-          eller fluga passar fint till mörk kostym! Bär man hellre klänning eller kjol brukar den
-          vara av lite finare tyg och täcka knäna.
+          Till bröllopet har vi valt klädkoden &quot;mörk kostym&quot;. Det innebär i grova drag att
+          om man vill ha på sig kostym brukar den ha en mörk färg (t.ex. mörkblå, mörkbrun eller
+          mörkgrå). Skorna ska traditionellt vara svarta, men detta har Adam brutit mot flera
+          gånger. Slips eller fluga passar fint till mörk kostym! Bär man hellre klänning eller kjol
+          brukar den vara av lite finare tyg och täcka knäna.
         </div>
       </div>
     </BorderFrame>
