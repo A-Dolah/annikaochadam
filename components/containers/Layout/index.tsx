@@ -13,7 +13,9 @@ import Navbar from '@containers/Navbar'
 import Sidebar from '@containers/Sidebar'
 
 import { useUI } from '@hooks/UIContext'
+import useWindowSize from '@hooks/useWindowSize'
 import annikaAdamPic from '@public/annikaadam.png'
+import annikaAdamMobilePic from '@public/annikaadam_kvadrat.png'
 
 import styles from './layout.module.css'
 
@@ -24,6 +26,7 @@ interface Props {
 }
 
 const Layout: FC<Props> = ({ children }) => {
+  const { width } = useWindowSize()
   const { pathname } = useRouter()
   const { displaySidebar, closeSidebar } = useUI()
 
@@ -41,15 +44,28 @@ const Layout: FC<Props> = ({ children }) => {
               className={cn(styles.landingImageContainer, `-mx-2 -mt-2 z-0`)}
               style={{ filter: `grayscale(0%)`, overflow: `hidden` }}
             >
-              <Image
-                quality={100}
-                src={annikaAdamPic}
-                alt="Gästis sky view"
-                priority
-                placeholder="blur"
-                layout="fill"
-                objectFit="cover"
-              />
+              {(width as unknown as number) > 600 ? (
+                <Image
+                  quality={100}
+                  src={annikaAdamPic}
+                  alt="Adam och Annika"
+                  priority
+                  placeholder="blur"
+                  layout="fill"
+                  objectFit="cover"
+                />
+              ) : (
+                <Image
+                  quality={100}
+                  src={annikaAdamMobilePic}
+                  alt="Adam och Annika"
+                  priority
+                  placeholder="blur"
+                  layout="fill"
+                  objectFit="cover"
+                  objectPosition="center -100px"
+                />
+              )}
             </div>
           )}
           <Navbar />

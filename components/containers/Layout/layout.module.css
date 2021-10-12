@@ -80,3 +80,9 @@
     height: 550px;
   }
 }
+
+@media only screen and (min-width: 1100px) {
+  .landingImageContainer {
+    height: 650px;
+  }
+}
