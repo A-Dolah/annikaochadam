@@ -25,6 +25,13 @@
 
 .squareDecoContainer .squareDecoContent {
   grid-area: inner;
+  min-height: 100vh;
+}
+
+.squareDecoContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .squareDecoContainer .squareDecoInner {

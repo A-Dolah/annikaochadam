@@ -82,7 +82,7 @@ const Schedule = () => (
         icon={<BarbecueIcon width={42} height={42} />}
       />
 
-      <div className="flex items-center justify-between mt-8">
+      <div className="flex items-center justify-center sm:justify-between mt-12">
         <ScheduleHeader text="Lördag den 28 maj" />
       </div>
       <p className="mt-2 mb-4 font-extralight text-center italic">Klädsel: Mörk kostym</p>
@@ -111,7 +111,7 @@ const Schedule = () => (
         icon={<PartyIcon width={42} height={42} />}
       />
 
-      <div className="flex items-center justify-between mt-12">
+      <div className="flex items-center justify-center sm:justify-between mt-12">
         <ScheduleHeader text="Söndag den 29 maj" />
       </div>
       <p className="italic font-extralight text-center mt-8">Mer info kommer</p>

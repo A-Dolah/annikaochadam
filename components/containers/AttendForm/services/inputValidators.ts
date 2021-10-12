@@ -10,12 +10,6 @@ export const nameValidator = (name: string, nameType: NameType) => {
     }
   }
 
-  if (!/^[a-öA-Ö]+$/.test(name)) {
-    return {
-      valid: false,
-      errorText: `Ange namn med endast bokstäver`,
-    }
-  }
   return {
     valid: true,
     errorText: ``,
@@ -30,7 +24,7 @@ export const emailValidator = (email: string) => {
   ) {
     return {
       valid: false,
-      errorText: `Ange en giltig email adress`,
+      errorText: `Ange en giltig emailadress`,
     }
   }
   return {
