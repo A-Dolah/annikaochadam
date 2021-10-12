@@ -31,6 +31,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         notAttending,
         diet,
       ])
+
+      console.log(
+        `Guest ${firstName} ${lastName} registered and will ${
+          attending27 ? `attend the 27th` : `not attend the 27th`
+        },
+          ${attending27 ? `attend the 28th` : `not attend the 28th`}.
+        `
+      )
       res.status(200).json({ data: rows })
     } catch (e) {
       console.error(`POST GUESTS ERROR`, e)

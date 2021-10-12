@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { NextApiRequest, NextApiResponse } from 'next'
 
 import transporter, { makeANiceEmail, gmailEmail } from '../../email/emailConfig'
@@ -16,6 +17,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         html,
       })
 
+      console.log(`Email sent to ${guest} with email ${guestEmail}`)
       res.status(200).json(`Email sent`)
     } catch (e) {
       console.error(`EMAIL ERROR`, e)

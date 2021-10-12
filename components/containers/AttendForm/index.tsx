@@ -144,7 +144,7 @@ const AttendForm: FC = () => {
 
       await axios.post(`/api/guests`, state)
 
-      await axios.post(`/api/email`, { guestEmail: state.email, guest: state })
+      axios.post(`/api/email`, { guestEmail: state.email, guest: state })
 
       router.push(`/bekraftelse`)
     } catch (error) {
