@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 const Confirmation = () => (
-  <div className="w-11/12 md:w-8/12 flex flex-col items-center justify-start mt-32 text-center h-full">
+  <div className="w-11/12 md:w-8/12 flex flex-col items-center justify-start text-center h-full">
     <h2 className="mb-6 text-2xl xl:text-3xl font-extralight">Tack för Din anmälan!</h2>
     <p className="font-extralight">
       Du borde få en bekräftelse på din angivna epostadress inom kort. Om Du har några frågor, tveka
