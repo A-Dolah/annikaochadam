@@ -88,7 +88,7 @@ const Schedule = () => (
       <p className="mt-2 mb-4 font-extralight text-center italic">Klädsel: Mörk kostym</p>
       <ScheduleItem
         time="14.00 – 15.00"
-        happening="Vigsel, Dalby (eller Torna Hällestad) Kyrka"
+        happening="Vigsel, Dalby (eller Torna Hällestad) kyrka"
         description="Vigsel är planerad i Dalby kyrka, ett stenkast från festlokalen Dalby Gästis Tingshus. Dalby kyrka kan dock komma att genomgå renovering, då sker vigsel istället i grannbyn Torna Hällestads kyrka."
         icon={<ChurchIcon width={42} height={42} />}
       />
