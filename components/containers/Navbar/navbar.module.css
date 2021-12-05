@@ -9,3 +9,11 @@
 .listItem:hover, .listItemActive {
   @apply border-b font-normal;
 }
+
+.listItem::before {
+  @apply font-normal;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
