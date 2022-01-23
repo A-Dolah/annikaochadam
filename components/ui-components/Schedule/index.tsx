@@ -5,10 +5,12 @@ import { FC } from 'react'
 import BorderFrame from '@components/BorderFrame'
 
 import BarbecueIcon from '@components/Icons/Barbecue'
+import BusIcon from '@components/Icons/Bus'
 import ChurchIcon from '@components/Icons/Church'
 import DiningIcon from '@components/Icons/Dining'
 import MingleIcon from '@components/Icons/Mingle'
 import PartyIcon from '@components/Icons/Party'
+import TeaIcon from '@components/Icons/Tea'
 
 import useWindowSize from '@hooks/useWindowSize'
 
@@ -88,9 +90,15 @@ const Schedule = () => (
       <p className="mt-2 mb-4 font-extralight text-center italic">Klädsel: Mörk kostym</p>
       <ScheduleItem
         time="14.00 – 15.00"
-        happening="Vigsel, Dalby (eller Torna Hällestad) kyrka"
-        description="Vigsel är planerad i Dalby kyrka, ett stenkast från festlokalen Dalby Gästis Tingshus. Dalby kyrka kan dock komma att genomgå renovering, då sker vigsel istället i grannbyn Torna Hällestads kyrka."
+        happening="Vigsel, Torna Hällestad kyrka"
+        description="Vigsel sker i Torna Hällestad som ligger ca 5 km kilometer från Dalby."
         icon={<ChurchIcon width={42} height={42} />}
+      />
+      <ScheduleItem
+        time="15.10 – 15.30"
+        happening="Transport, Torna Hällestad kyrka till Dalby Gästis"
+        description="Efter vigseln kommer vi att anordna med transport från kyrkan till festlokalen i Dalby. Det går givetvis bra att åka egen bil om man har det, men det kommer också finnas möjlighet att åka abonnerad buss."
+        icon={<BusIcon width={42} height={42} />}
       />
       <ScheduleItem
         time="15.30 – 16.30"
@@ -114,13 +122,12 @@ const Schedule = () => (
       <div className="flex items-center justify-center sm:justify-between mt-12">
         <ScheduleHeader text="Söndag den 29 maj" />
       </div>
-      <p className="italic font-extralight text-center mt-8">Mer info kommer</p>
-      {/* <ScheduleItem
-        time="10.00 – 13.00"
-        happening="Möjlighet till avsked, Dalby Gästis Hotell"
-        description='Detta är inte en "officiell" del av bröllopshelgen, men Vi (Annika och Adam) kommer att befinna oss på Dalby Gästis under söndagen för att ta farväl och tacka för helgen. Kom om Ni har vägarna förbi innan Er hemresa!'
+      <ScheduleItem
+        time="11.00 – 13.00"
+        happening="Brunch, Tetravägen 74 Dalby"
+        description="En enklare brunch serveras hemma hos Adams föräldrar. Brudparet är på plats från och med kl. 10, den som vill och hinner kan komma förbi på kaffe och macka och kramas hejdå!"
         icon={<TeaIcon width={42} height={42} />}
-      /> */}
+      />
     </BorderFrame>
   </div>
 )

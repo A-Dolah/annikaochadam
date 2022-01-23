@@ -19,7 +19,7 @@ const Footer = () => (
           className="font-extralight text-md hover:text-blue-800"
           rel="noreferrer"
         >
-          Dalby kyrka
+          Torna Hällestad kyrka
         </a>
       </div>
     </div>
