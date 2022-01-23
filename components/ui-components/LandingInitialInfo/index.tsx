@@ -4,7 +4,9 @@ const LandingInitialInfo = () => (
       <div className="w-12/12" />
       <div>
         <div className="flex flex-col items-center md:items-center max-w-md">
-          <p className="text-4xl md:whitespace-nowrap text-center">Välkommen på bröllop!</p>
+          <p className="text-4xl md:whitespace-nowrap text-center font-extralight">
+            Välkommen på bröllop!
+          </p>
           <p className="mt-8 mb-4">Den 27-29 maj 2022 firar Vi bröllop i Dalby.</p>
           <p className="font-extralight mb-4">
             På denna sida publiceras information om bröllopshelgen och anmälan sker under länken
