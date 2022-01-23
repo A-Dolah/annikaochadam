@@ -25,8 +25,10 @@ const FAQ = () => (
       <div className="flex-col justify-center items-center text-center">
         <div className="italic font-extralight text-center">
           Barn är varmt välkomna till grillfesten på fredagen den 27 maj. På lördagen den 28 maj
-          tror vi däremot att barnen har det roligare hos sina barnvakter. <br />
-          Undantag: Ammande barn är välkomna hela helgen.
+          tror vi däremot att barnen har det roligare hos sina barnvakter.
+        </div>
+        <div className="italic font-extralight text-center mt-4">
+          Undantag: ammande barn är givetvis välkomna
         </div>
       </div>
     </BorderFrame>
@@ -35,9 +37,69 @@ const FAQ = () => (
     <BorderFrame>
       <div className="flex-col justify-center items-center text-center">
         <div className="italic font-extralight text-center">
-          Gällande boende för bröllopshelgen håller vi på att koordinera de bästa alternativen för
-          er alla. Vi kommer att kontakta er som vi vet reser från andra platser med förslag på
-          boende. Vi kommer att ha kontaktat er någon gång i december/januari med mer info.
+          För er som reser och behöver boende rekommenderar vi att ni bor i Lund. Det enda
+          hotellalternativ som finns i Dalby är Gästis men dessa rum håller tyvärr på att renoveras.
+        </div>
+        <div className="italic font-extralight text-center mt-4">
+          Det finns många olika hotellalternativ i Lund i olika prisklasser. Vi har efterforskat
+          lite och kan rekommendera följande alternativ:
+        </div>
+        <div className="text-center mt-4">
+          <a
+            href="https://www.millasvilla.se/se"
+            target="_blank"
+            className="font-bold text-md hover:text-blue-800"
+            rel="noreferrer"
+          >
+            &middot; Millas Villa
+          </a>
+        </div>
+        <div className="italic font-extralight text-center text-xs">
+          {` `}
+          Verkar passa bra om man vill bo fler i grupp. Använd rabattkod &apos;REGULAR&apos; för 10%
+          rabatt
+        </div>
+        <div className="text-center mt-4">
+          <a
+            href="https://lillahotellet.com/sv/double/"
+            target="_blank"
+            className="font-bold text-md hover:text-blue-800"
+            rel="noreferrer"
+          >
+            &middot; Lilla Hotellet
+          </a>
+          <div className="italic font-extralight text-center text-xs">
+            {` `}
+            Mysigt botiquehotell mitt i Lund
+          </div>
+        </div>
+        <div className="text-center mt-4">
+          <a
+            href="https://www.bestwestern.se/booking-path/hotel-details/best-western-plus-hotel-planetstaden-lund-88253"
+            target="_blank"
+            className="font-bold text-md hover:text-blue-800"
+            rel="noreferrer"
+          >
+            &middot; Best Western Planetstaden
+          </a>
+          <div className="italic font-extralight text-center text-xs">
+            {` `}
+            Hotell i utkanten av Lund i riktining mot Dalby
+          </div>
+        </div>
+        <div className="text-center mt-4">
+          <a
+            href="https://www.grandilund.se/"
+            target="_blank"
+            className="font-bold text-md hover:text-blue-800"
+            rel="noreferrer"
+          >
+            &middot; Grand Hotel Lund
+          </a>
+          <div className="italic font-extralight text-center text-xs">
+            {` `}
+            För den som vill lyxa till det
+          </div>
         </div>
       </div>
     </BorderFrame>
