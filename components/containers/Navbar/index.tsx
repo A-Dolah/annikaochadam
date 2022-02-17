@@ -21,7 +21,7 @@ export const NavLinks = () => {
         })}
       >
         <Link href="/">
-          <a>Hem</a>
+          <a className={styles.listItemLink}>Hem</a>
         </Link>
       </li>
       <li
@@ -30,7 +30,7 @@ export const NavLinks = () => {
         })}
       >
         <Link href="/schema">
-          <a>Schema</a>
+          <a className={styles.listItemLink}>Schema</a>
         </Link>
       </li>
       <li
@@ -39,7 +39,7 @@ export const NavLinks = () => {
         })}
       >
         <Link href="/osa">
-          <a>Anmälan</a>
+          <a className={styles.listItemLink}>Anmälan</a>
         </Link>
       </li>
       <li
@@ -48,7 +48,7 @@ export const NavLinks = () => {
         })}
       >
         <Link href="/kontakt">
-          <a>Kontakt</a>
+          <a className={styles.listItemLink}>Kontakt</a>
         </Link>
       </li>
       <li
@@ -57,7 +57,7 @@ export const NavLinks = () => {
         })}
       >
         <Link href="/faq">
-          <a>FAQ</a>
+          <a className={styles.listItemLink}>FAQ</a>
         </Link>
       </li>
     </>
@@ -79,7 +79,7 @@ const MobileNav = () => {
 }
 
 const DesktopNav = () => (
-  <ul className="flex justify-evenly w-full">
+  <ul className="flex w-full">
     <NavLinks />
   </ul>
 )

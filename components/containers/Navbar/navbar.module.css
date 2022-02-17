@@ -3,17 +3,34 @@
 }
 
 .listItem {
-  @apply font-sans text-gray-900 block font-extralight text-xl tracking-wide text-center mx-auto my-8 sm:my-4;
+  @apply text-center my-8 sm:my-4 mx-auto sm:w-1/4 sm:inline-block;
 }
 
-.listItem:hover, .listItemActive {
-  @apply border-b font-normal;
+.listItem .listItemLink {
+  @apply font-sans text-gray-900 font-extralight text-xl tracking-wide w-auto;
 }
 
-.listItem::before {
-  @apply font-normal;
+.listItem .listItemLink::after {
+  content: '';
+  width: 0px;
+  height: 1px;
   display: block;
-  height: 0;
-  overflow: hidden;
-  visibility: hidden;
+  background: black;
+  transition: 300ms;
+  margin: 0 auto;
 }
+
+.listItem .listItemLink:hover::after {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.listItemLink:hover, .listItemActive .listItemLink {
+  @apply font-normal;
+}
+
+.listItemActive .listItemLink:after {
+  width: 50%;
+  margin: 0 auto;
+}
+
