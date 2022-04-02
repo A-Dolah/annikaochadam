@@ -5,7 +5,6 @@ import { FC } from 'react'
 import BorderFrame from '@components/BorderFrame'
 
 import BarbecueIcon from '@components/Icons/Barbecue'
-import BusIcon from '@components/Icons/Bus'
 import ChurchIcon from '@components/Icons/Church'
 import DiningIcon from '@components/Icons/Dining'
 import MingleIcon from '@components/Icons/Mingle'
@@ -90,18 +89,12 @@ const Schedule = () => (
       <p className="mt-2 mb-4 font-extralight text-center italic">Klädsel: Mörk kostym</p>
       <ScheduleItem
         time="14.00 – 15.00"
-        happening="Vigsel, Torna Hällestad kyrka"
-        description="Vigsel sker i Torna Hällestad som ligger ca 5 km kilometer från Dalby."
+        happening="Vigsel, Dalby kyrka"
+        description="Efter mycket om och men är det nu bestämt att vigsel sker i Dalby kyrka som ligger ett stenkast från Dalby Gästis."
         icon={<ChurchIcon width={42} height={42} />}
       />
       <ScheduleItem
-        time="15.10 – 15.30"
-        happening="Transport, Torna Hällestad kyrka till Dalby Gästis"
-        description="Efter vigseln kommer vi att anordna med transport från kyrkan till festlokalen i Dalby. Det går givetvis bra att åka egen bil om man har det, men det kommer också finnas möjlighet att åka abonnerad buss."
-        icon={<BusIcon width={42} height={42} />}
-      />
-      <ScheduleItem
-        time="15.30 – 16.30"
+        time="15.15 – 16.30"
         happening="Fördrink, Dalby Gästis trädgård"
         description="Innan bröllopsmiddagen samlas vi i Dalby Gästis härliga trädgård för bubbel, snittar, mingel och bilder."
         icon={<MingleIcon width={42} height={42} />}
