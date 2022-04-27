@@ -90,6 +90,7 @@ const GuestInput: FC<Props> = ({
       firstRenderRef={firstRenderRef}
     >
       <input
+        disabled
         className={styles.textInputStyle}
         id="inline-firstname"
         type="text"
@@ -110,6 +111,7 @@ const GuestInput: FC<Props> = ({
       firstRenderRef={firstRenderRef}
     >
       <input
+        disabled
         className={styles.textInputStyle}
         id="inline-lastname"
         type="text"
@@ -125,6 +127,7 @@ const GuestInput: FC<Props> = ({
 
     <CheckboxInputComponent spanText="Jag kommer på grillfesten den 27 maj">
       <input
+        disabled
         className="opacity-0 absolute"
         type="checkbox"
         checked={state.attending27}
@@ -148,6 +151,7 @@ const GuestInput: FC<Props> = ({
 
     <CheckboxInputComponent spanText="Jag kommer på vigsel och bröllop den 28 maj">
       <input
+        disabled
         className="opacity-0 absolute"
         type="checkbox"
         checked={state.attending28}
@@ -171,6 +175,7 @@ const GuestInput: FC<Props> = ({
 
     <CheckboxInputComponent spanText="Jag kan tyvärr inte vara med under bröllopshelgen">
       <input
+        disabled
         className="opacity-0 absolute"
         type="checkbox"
         checked={state.notAttending}
@@ -194,6 +199,7 @@ const GuestInput: FC<Props> = ({
 
     <TextInputComponent label="Eventuella kostönskemål" htmlFor="inline-diet">
       <textarea
+        disabled
         className={styles.textInputStyle}
         id="inline-diet"
         value={state.diet}
@@ -213,6 +219,7 @@ const GuestInput: FC<Props> = ({
       firstRenderRef={firstRenderRef}
     >
       <input
+        disabled
         className={styles.textInputStyle}
         value={state.email}
         id="inline-email"

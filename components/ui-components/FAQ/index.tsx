@@ -20,15 +20,39 @@ const FAQ = () => (
       </div>
     </BorderFrame>
 
-    <p className="mb-4 text-2xl xl:text-3xl font-extralight mt-8">Barn</p>
+    <p className="mb-4 text-2xl xl:text-3xl font-extralight mt-8">Gåvor</p>
     <BorderFrame>
       <div className="flex-col justify-center items-center text-center">
         <div className="italic font-extralight text-center">
-          Barn är varmt välkomna till grillfesten på fredagen den 27 maj. På lördagen den 28 maj
-          tror vi däremot att barnen har det roligare hos sina barnvakter.
+          Vi är otroligt tacksamma för att ni vill komma och förgylla vår dag, och vi förväntar oss
+          inga gåvor utöver er närvaro.
         </div>
         <div className="italic font-extralight text-center mt-4">
-          Undantag: ammande barn är givetvis välkomna
+          Vill man ändå ge oss en gåva önskar vi bidrag till vår bröllopsresa. Detta kan sättas in
+          på vårt resekonto hos Handelsbanken med följande uppgifter:
+        </div>
+        <ul className="italic font-extralight text-center mt-2">
+          <li>Clearingnummer: 6318</li>
+          <li>Kontonummer: 340 799 498</li>
+          <li>Mottagarnamn: Annika Wikman</li>
+        </ul>
+      </div>
+    </BorderFrame>
+
+    <p className="mb-4 text-2xl xl:text-3xl font-extralight mt-8">Tal och framträdanden</p>
+    <BorderFrame>
+      <div className="flex-col justify-center items-center text-center">
+        <div className="italic font-extralight text-center">
+          Vill du hålla tal eller annat framträdande? Anmäl dig till våra toastmasters på
+          <a
+            href="mailTo:annika.adam.toastmasters@gmail.com"
+            className="font-extralight text-blue-500"
+          >
+            {` `}
+            annika.adam.toastmasters@gmail.com
+          </a>
+          {` `}
+          senast 14:e maj.
         </div>
       </div>
     </BorderFrame>
@@ -116,22 +140,18 @@ const FAQ = () => (
           sig till Lund med flygbuss, eller till Dalby med taxi. Det finns också möjlighet att bli
           hämtade på flygplatsen – hör av er till oss om ni behöver skjuts.
         </div>
-        <div className="italic font-extralight text-center mt-4">
-          Vi kommer att anordna eventuellt resande under bröllopsdagen mellan kyrka och festlokal.
-        </div>
       </div>
     </BorderFrame>
 
-    <p className="mb-4 text-2xl xl:text-3xl font-extralight mt-8">Gåvor</p>
+    <p className="mb-4 text-2xl xl:text-3xl font-extralight mt-8">Barn</p>
     <BorderFrame>
       <div className="flex-col justify-center items-center text-center">
         <div className="italic font-extralight text-center">
-          Vi är otroligt tacksamma för att ni vill komma och förgylla vår dag, och vi förväntar oss
-          inga gåvor utöver er närvaro.
+          Barn är varmt välkomna till grillfesten på fredagen den 27 maj. På lördagen den 28 maj
+          tror vi däremot att barnen har det roligare hos sina barnvakter.
         </div>
         <div className="italic font-extralight text-center mt-4">
-          Vill man ändå ge oss en gåva önskar vi bidrag till vår bröllopsresa. Detta kan sättas in
-          på konto hos Handelsbanken med clearingnummer: 6318 och kontonummer 340 799 498.
+          Undantag: ammande barn är givetvis välkomna
         </div>
       </div>
     </BorderFrame>

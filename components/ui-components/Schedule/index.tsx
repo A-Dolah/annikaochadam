@@ -94,7 +94,7 @@ const Schedule = () => (
         icon={<ChurchIcon width={42} height={42} />}
       />
       <ScheduleItem
-        time="15.15 – 16.30"
+        time="15.00 – 16.30"
         happening="Fördrink, Dalby Gästis trädgård"
         description="Innan bröllopsmiddagen samlas vi i Dalby Gästis härliga trädgård för bubbel, snittar, mingel och bilder."
         icon={<MingleIcon width={42} height={42} />}

@@ -31,15 +31,7 @@ const Contact = () => (
           <h3 className="mb-2">Email:</h3>
           <div>
             <a className="font-extralight text-blue-500" href="mailto:perwikman89@gmail.com">
-              perwikman89@gmail.com
-            </a>
-          </div>
-          <div>
-            <a
-              className="font-extralight text-blue-500"
-              href="mailto:sarah.nilsson.dolah@gmail.com"
-            >
-              sarah.nilsson.dolah@gmail.com
+              annika.adam.toastmasters@gmail.com
             </a>
           </div>
         </div>
