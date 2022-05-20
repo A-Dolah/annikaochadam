@@ -111,6 +111,12 @@ const Schedule = () => (
         description="Baren öppnar, borden åker ut och musiken kommer in! Vi kommer även att anordna en lite lugnare avdelning med kaffevagn för de som föredrar det."
         icon={<PartyIcon width={42} height={42} />}
       />
+      <ScheduleItem
+        time="02.00 – sent"
+        happening="Efterfest, Tetravägen 74 Dalby"
+        description="För den som känner för lite ytterligare fest finns möjlighet att gå till samma plats där grillfesten var (15 min promenad) för efterfest."
+        icon={<PartyIcon width={42} height={42} />}
+      />
 
       <div className="flex items-center justify-center sm:justify-between mt-12">
         <ScheduleHeader text="Söndag den 29 maj" />
