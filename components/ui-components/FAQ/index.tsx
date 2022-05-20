@@ -20,22 +20,35 @@ const FAQ = () => (
       </div>
     </BorderFrame>
 
-    <p className="mb-4 text-2xl xl:text-3xl font-extralight mt-8">Gåvor</p>
+    <p className="mb-4 text-2xl xl:text-3xl font-extralight mt-8">Transport till och från Dalby</p>
     <BorderFrame>
       <div className="flex-col justify-center items-center text-center">
         <div className="italic font-extralight text-center">
-          Vi är otroligt tacksamma för att ni vill komma och förgylla vår dag, och vi förväntar oss
-          inga gåvor utöver er närvaro.
+          Dalby ligger ca 1 mil från Lund och 2,5 mil från Malmö. För att ta sig till och från Dalby
+          går det bussar med
+          <a
+            href="https://www.skanetrafiken.se/"
+            target="_blank"
+            className="font-extralight text-blue-500"
+            rel="noreferrer"
+          >
+            {` `}
+            Skånetrafiken
+            {` `}
+          </a>
+          . Man kan givetvis även ta taxi.
+          <div className="italic font-extralight text-center mt-4">
+            För att ta sig till Tetravägen 74 på fredagen kan man ta buss till Dalby Busstation och
+            sedan gå till Adams föräldrars gård (ca 15 min promenad). På lördagen är det ännu
+            enklare eftersom Dalby Busstation ligger alldeles bredvid Dalby Gästis och Dalby kyrka.
+          </div>
+          <div className="italic font-extralight text-center mt-4">
+            För att ta sig hem efter bröllopsfesten går <b>sista bussen till Lund kl. 02.16</b>.
+            {` `}
+            <b>Sista bussen till Malmö går kl. 01.33</b>. Vill man åka taxi kan personalen på Dalby
+            Gästis hjälpa till att kontakta taxibolag.
+          </div>
         </div>
-        <div className="italic font-extralight text-center mt-4">
-          Vill man ändå ge oss en gåva önskar vi bidrag till vår bröllopsresa. Detta kan sättas in
-          på vårt resekonto hos Handelsbanken med följande uppgifter:
-        </div>
-        <ul className="italic font-extralight text-center mt-2">
-          <li>Clearingnummer: 6318</li>
-          <li>Kontonummer: 340 799 498</li>
-          <li>Mottagarnamn: Annika Wikman</li>
-        </ul>
       </div>
     </BorderFrame>
 
