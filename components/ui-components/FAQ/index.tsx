@@ -7,6 +7,25 @@ const FAQ = () => (
       löpande.
     </p>
 
+    <p className="mb-4 text-2xl xl:text-3xl font-extralight mt-8">Gåvor</p>
+    <BorderFrame>
+      <div className="flex-col justify-center items-center text-center">
+        <div className="italic font-extralight text-center">
+          Vi är otroligt tacksamma för att ni vill komma och förgylla vår dag, och vi förväntar oss
+          inga gåvor utöver er närvaro.
+        </div>
+        <div className="italic font-extralight text-center mt-4">
+          Vill man ändå ge oss en gåva önskar vi bidrag till vår bröllopsresa. Detta kan sättas in
+          på vårt resekonto hos Handelsbanken med följande uppgifter:
+        </div>
+        <ul className="italic font-extralight text-center mt-2">
+          <li>Clearingnummer: 6318</li>
+          <li>Kontonummer: 340 799 498</li>
+          <li>Mottagarnamn: Annika Wikman</li>
+        </ul>
+      </div>
+    </BorderFrame>
+
     <p className="mb-4 text-2xl xl:text-3xl font-extralight mt-8">Klädsel</p>
     <BorderFrame>
       <div className="flex-col justify-center items-center text-center">
@@ -141,7 +160,7 @@ const FAQ = () => (
       </div>
     </BorderFrame>
 
-    <p className="mb-4 text-2xl xl:text-3xl font-extralight mt-8">Resa</p>
+    <p className="mb-4 text-2xl xl:text-3xl font-extralight mt-8">Resa till Skåne</p>
     <BorderFrame>
       <div className="flex-col justify-center items-center text-center">
         <div className="italic font-extralight text-center">
